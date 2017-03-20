@@ -27,7 +27,7 @@ export default class Relationships extends Component {
 				<Header text={'Profile Setup'} />
 
 				<View style={styles.title}>
-					<Text style={styles.titleStyle}>Relationships</Text>
+					<Text style={styles.titleStyle}>{"Relationships"}</Text>
 				</View>
 
 				<View style={styles.radios}>
@@ -35,11 +35,11 @@ export default class Relationships extends Component {
 					<RadioForm
 						radio_props={[
 							{ label: 'Live with both parents', value: 0 },
-							{ label: 'Live with one parent', value: 1 },
+							{ label: 'Live with one parent', value: 0 },
 							{ label: 'Live with relatives', value: 0 }
 						]}
 						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={0}
+						initial={null}
 						onPress={(value) => { this.setState({ value: value }) }}
 					/>
 				</View>
@@ -49,11 +49,11 @@ export default class Relationships extends Component {
 					<RadioForm
 						radio_props={[
 							{ label: 'Only child', value: 0 },
-							{ label: 'Have half/step siblings', value: 1 },
+							{ label: 'Have half/step siblings', value: 0 },
 							{ label: 'Have brother/sisters', value: 0 }
 						]}
 						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={0}
+						initial={null}
 						onPress={(value) => { this.setState({ value: value }) }}
 					/>
 				</View>
@@ -67,7 +67,7 @@ export default class Relationships extends Component {
 							{ label: 'Youngest sibiling', value: 0 }
 						]}
 						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={0}
+						initial={null}
 						onPress={(value) => { this.setState({ value: value }) }}
 					/>
 				</View>
@@ -95,6 +95,8 @@ const styles = StyleSheet.create({
 		textDecorationLine: 'underline',
 		letterSpacing: 1.02,
 		paddingBottom: 7,
+		textDecorationStyle: 'solid',
+		textDecorationColor: '#419BF9',
 	},
 	title: {
 		justifyContent: 'center',
@@ -102,11 +104,13 @@ const styles = StyleSheet.create({
 		paddingTop: 12,
 		paddingBottom: 4,
 	},
-	titleStyle:{
+	titleStyle: {
 		fontSize: 32,
 		fontFamily: 'Avenir',
 		textDecorationLine: 'underline',
 		letterSpacing: 1.02,
+		textDecorationStyle: 'solid',
+		textDecorationColor: '#419BF9',
 	}
 
 });
