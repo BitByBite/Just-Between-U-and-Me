@@ -27,11 +27,11 @@ export default class Relationships extends Component {
 				<Header text={'Profile Setup'} />
 
 				<View style={styles.title}>
-					<Text style={styles.titleStyle}>{"Relationships"}</Text>
+					<Text style={styles.titleStyle}>{"⠀"}Relationships{"⠀"}</Text>
 				</View>
 
 				<View style={styles.radios}>
-					<Text style={styles.titles}>Family</Text>
+					<Text style={styles.titles}>Family{"⠀"}</Text>
 					<RadioForm
 						radio_props={[
 							{ label: 'Live with both parents', value: 0 },
@@ -45,7 +45,7 @@ export default class Relationships extends Component {
 				</View>
 
 				<View style={styles.radios}>
-					<Text style={styles.titles}>Sibilings</Text>
+					<Text style={styles.titles}>Sibilings{"⠀"}</Text>
 					<RadioForm
 						radio_props={[
 							{ label: 'Only child', value: 0 },
@@ -59,7 +59,7 @@ export default class Relationships extends Component {
 				</View>
 
 				<View style={styles.radios}>
-					<Text style={styles.titles}>Birth order</Text>
+					<Text style={styles.titles}>Birth order{"⠀"}</Text>
 					<RadioForm
 						radio_props={[
 							{ label: 'Oldest sibiling', value: 0 },
