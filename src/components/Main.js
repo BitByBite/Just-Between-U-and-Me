@@ -6,6 +6,8 @@ import Relationships from './Relationships';
 import Ethnicity from './Ethnicity';
 import Gender from './Gender';
 import AboutMe from './AboutMe';
+import Welcome from './Welcome'
+
 
 export default class Main extends Component {
 	render() {
@@ -38,6 +40,13 @@ export default class Main extends Component {
 						animation='fade'
 						hideNavBar={true}
 					/>
+
+					<Scene key="welcome"
+						component={Welcome}
+						animation='fade'
+						hideNavBar={true}
+					/>
+
 				</Scene>
 			</Router>
 		);
