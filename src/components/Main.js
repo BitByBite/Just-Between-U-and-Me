@@ -4,6 +4,8 @@ import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 import LoginScreen from './LoginScreen';
 import Relationships from './Relationships';
 import Ethnicity from './Ethnicity';
+import Gender from './Gender';
+import AboutMe from './AboutMe';
 
 export default class Main extends Component {
 	render() {
@@ -16,13 +18,23 @@ export default class Main extends Component {
 						hideNavBar={true}
 						initial={true}
 					/>
-					<Scene key="relationShips"
+					<Scene key="relationships"
 						component={Relationships}
 						animation='fade'
 						hideNavBar={true}
 					/>
 					<Scene key="ethnicity"
 						component={Ethnicity}
+						animation='fade'
+						hideNavBar={true}
+					/>
+                    <Scene key="gender"
+                        component={Gender}
+                        animation='fade'
+                        hideNavBar={true}
+                    />
+					<Scene key="aboutMe"
+						component={AboutMe}
 						animation='fade'
 						hideNavBar={true}
 					/>
