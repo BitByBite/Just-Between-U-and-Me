@@ -73,7 +73,7 @@ export default class AboutMe extends Component {
 
 				</View>
 
-				<BackNext destination={null}/>
+				<BackNext destination={Actions.congrats}/>
 			</View>
 		);
 	}
