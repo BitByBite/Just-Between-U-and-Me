@@ -53,8 +53,8 @@ export default class ButtonSubmit extends Component {
 			this.setState({ isLoading: false });
 			this.buttonAnimated.setValue(0);
 			this.growAnimated.setValue(0);
-		}, 2300);
-	}
+		}, 2000);
+}
 
 	_onGrow() {
 		Animated.timing(
@@ -65,7 +65,7 @@ export default class ButtonSubmit extends Component {
 				easing: Easing.linear
 			}
 		).start();
-	}
+}
 
 	render() {
 		const changeWidth = this.buttonAnimated.interpolate({
@@ -99,7 +99,7 @@ export default class ButtonSubmit extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		top: -95,
+		top: -100,
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 	},
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		backgroundColor: '#3DADFF',
 		height: MARGIN,
-		borderRadius: 5,
+		borderRadius: 20,
 		zIndex: 100,
 	},
 	circle: {

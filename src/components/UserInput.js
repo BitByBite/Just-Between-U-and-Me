@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 		height: 40,
 		marginHorizontal: 25,
 		paddingLeft: 45,
-		borderRadius: 5,
+		borderRadius: 20,
 		color: 'white',
 		fontFamily: 'Avenir-light',
 		fontSize: 14,
