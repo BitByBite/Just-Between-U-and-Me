@@ -72,7 +72,7 @@ export default class Relationships extends Component {
 					/>
 				</View>
 
-				<BackNext />
+				<BackNext destination={Actions.loginScreen}/>
 			</View>
 		);
 	}

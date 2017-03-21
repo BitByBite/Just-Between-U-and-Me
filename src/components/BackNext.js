@@ -32,11 +32,6 @@ export default class Relationships extends Component {
 		Actions.pop()}, 250);
 	}
 
-		_onPress2() {
-		setTimeout(() => {
-		}, 250);
-	}
-
 	render() {
 		return (
 				<View style={styles.containerButtons}>
@@ -46,7 +41,7 @@ export default class Relationships extends Component {
 						<Text style={styles.text2}>Back</Text>
 					</TouchableOpacity>
 					<Text style={styles.text}>|</Text>
-					<TouchableOpacity onPress={this._onPress2}
+					<TouchableOpacity onPress={this.props.destination}
 						style={styles.button2}
 						activeOpacity={1}>
 						<Text style={styles.text2}>Next</Text>
