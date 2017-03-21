@@ -20,23 +20,23 @@ const FONT_SIZE = 20;
 const GLOBAL_BUTTON_SIZE = 8;
 
 //actuall thing
-export default class Relationships extends Component {
+export default class Ethnicity extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
 				<Header text={'Profile Setup'} />
 
 				<View style={styles.title}>
-					<Text style={styles.titleStyle}>{"⠀"}Relationships{"⠀"}</Text>
+					<Text style={styles.titleStyle}>{"⠀"}Ethnicity{"⠀"}</Text>
 				</View>
 
 				<View style={styles.radios}>
-					<Text style={styles.titles}>Family{"⠀"}</Text>
+					<Text style={styles.titles}>Citizenship{"⠀"}</Text>
 					<RadioForm
 						radio_props={[
-							{ label: 'Live with both parents', value: 0 },
-							{ label: 'Live with one parent', value: 0 },
-							{ label: 'Live with relatives', value: 0 }
+							{ label: 'Born in the U.S.', value: 0 },
+							{ label: 'Born outside the U.S.', value: 0 },
+							{ label: 'Migrated to the U.S.', value: 0 }
 						]}
 						buttonSize={GLOBAL_BUTTON_SIZE}
 						initial={null}
@@ -45,12 +45,13 @@ export default class Relationships extends Component {
 				</View>
 
 				<View style={styles.radios}>
-					<Text style={styles.titles}>Sibilings{"⠀"}</Text>
+					<Text style={styles.titles}>Geneology{"⠀"}</Text>
 					<RadioForm
 						radio_props={[
-							{ label: 'Only child', value: 0 },
-							{ label: 'Have half/step siblings', value: 0 },
-							{ label: 'Have brother/sisters', value: 0 }
+							{ label: 'First generation - migrated to the U.S.', value: 0 },
+							{ label: '2nd generation - born in the U.S.', value: 0 },
+							{ label: '3rd generation - parents born in the U.S.', value: 0 },
+							{ label: '4th+ generation - grandparents born in the U.S.', value: 0 }
 						]}
 						buttonSize={GLOBAL_BUTTON_SIZE}
 						initial={null}
@@ -59,12 +60,12 @@ export default class Relationships extends Component {
 				</View>
 
 				<View style={styles.radios}>
-					<Text style={styles.titles}>Birth order{"⠀"}</Text>
+					<Text style={styles.titles}>Ethnic Group{"⠀"}</Text>
 					<RadioForm
 						radio_props={[
-							{ label: 'Oldest sibiling', value: 0 },
-							{ label: 'Middle sibiling', value: 1 },
-							{ label: 'Youngest sibiling', value: 0 }
+							{ label: 'Both parents are the same ethnicity', value: 0 },
+							{ label: 'Mixed ethnicity', value: 1 },
+							{ label: 'Don\'t know my ethnicity', value: 0 }
 						]}
 						buttonSize={GLOBAL_BUTTON_SIZE}
 						initial={null}
@@ -72,7 +73,7 @@ export default class Relationships extends Component {
 					/>
 				</View>
 
-				<BackNext destination={Actions.ethnicity}/>
+				<BackNext destination={Actions.loginScreen}/>
 			</View>
 		);
 	}

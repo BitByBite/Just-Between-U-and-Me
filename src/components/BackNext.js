@@ -6,13 +6,14 @@ import {
 	TouchableOpacity,
 	Animated,
 	Easing,
-	Text
+	Text,
+	Navigator
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
 
 const SIZE = 40;
 const FONT_SIZE = 24;
-export default class Relationships extends Component {
+export default class BackNext extends Component {
 	constructor() {
 		super();
 
@@ -29,7 +30,8 @@ export default class Relationships extends Component {
 		this.setState({ isLoading: true });
 
 		setTimeout(() => {
-		Actions.pop()}, 250);
+			Actions.pop();
+		}, 250);
 	}
 
 	render() {
@@ -52,7 +54,7 @@ export default class Relationships extends Component {
 }
 
 const styles = StyleSheet.create({
-		containerButtons: {
+	containerButtons: {
 		flex: 1,
 		alignItems: 'flex-end',
 		justifyContent: `center`,
