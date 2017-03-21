@@ -3,6 +3,7 @@ import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 
 import LoginScreen from './LoginScreen';
 import Relationships from './Relationships';
+import Ethnicity from './Ethnicity';
 
 export default class Main extends Component {
   render() {
@@ -20,6 +21,11 @@ export default class Main extends Component {
 	          animation='fade'
 	          hideNavBar={true}
 	        />
+            <Scene key="ethnicity"
+                component={Ethnicity}
+                animation='fade'
+                hideNavBar={true}
+            />
 	      </Scene>
 	    </Router>
 	  );
