@@ -8,6 +8,7 @@ import Gender from './Gender';
 import AboutMe from './AboutMe';
 import Welcome from './Welcome';
 import Congrats from './Congrats';
+import BottomNav from './App/BottomNav';
 
 
 export default class Main extends Component {
@@ -50,6 +51,12 @@ export default class Main extends Component {
 
 					<Scene key="congrats"
 						component={Congrats}
+						animation='fade'
+						hideNavBar={true}
+					/>
+
+					<Scene key='app'
+						component={BottomNav}
 						animation='fade'
 						hideNavBar={true}
 					/>

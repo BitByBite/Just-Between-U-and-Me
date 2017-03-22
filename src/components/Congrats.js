@@ -9,7 +9,7 @@ export default class Congrats extends Component {
       <Text style={styles.congrats}>Congrats!</Text>
       <Text style={styles.text}>You have officially completed the setup of your account!
       You may now go on to use the application!</Text>
-      <TouchableOpacity onPress={Actions.loginScreen}>
+      <TouchableOpacity onPress={Actions.app}>
         <Text style={styles.start}>Start!</Text>
       </TouchableOpacity>
       </View>
