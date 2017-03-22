@@ -7,7 +7,8 @@ import {
 	Animated,
 	TouchableOpacity,
 	Text,
-
+	Easing,
+	Image
 } from 'react-native';
 
 import UserInput from './UserInput';
@@ -15,6 +16,7 @@ import SignupSection from './SignupSection';
 
 import usernameImg from '../images/username.png';
 import passwordImg from '../images/password.png';
+import spinner from '../images/loading.gif';
 
 const MARGIN = 40;
 

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 
 import logoImg from '../images/logo.png';
-
+import spinner from '../images/loading2.gif';
 export default class Logo extends Component {
 	render() {
 		return (
