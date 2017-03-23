@@ -5,9 +5,15 @@ import {
 	Image,
 	TouchableOpacity,
 	Animated,
+<<<<<<< HEAD
 	Easing,
 	Text,
 	TextInput
+=======
+	Text,
+	Easing,
+	TextInput,
+>>>>>>> master
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
 
