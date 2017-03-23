@@ -17,6 +17,7 @@ import SignupSection from './SignupSection';
 import usernameImg from '../images/username.png';
 import passwordImg from '../images/password.png';
 import spinner from '../images/ring.gif';
+
 const MARGIN = 40;
 
 export default class Form extends Component {
