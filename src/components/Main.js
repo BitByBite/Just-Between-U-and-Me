@@ -9,6 +9,7 @@ import AboutMe from './AboutMe';
 import Welcome from './Welcome';
 import Congrats from './Congrats';
 import BottomNav from './App/BottomNav';
+import Ask from './App/Ask';
 
 
 export default class Main extends Component {
@@ -57,6 +58,12 @@ export default class Main extends Component {
 
 					<Scene key='app'
 						component={BottomNav}
+						animation='fade'
+						hideNavBar={true}
+					/>
+
+					<Scene key='ask'
+						component={Ask}
 						animation='fade'
 						hideNavBar={true}
 					/>

@@ -10,15 +10,15 @@ export default class BottomNav extends Component {
       <View style={styles.space}>
         <View style={styles.bar}>
           <TouchableOpacity>
-            <Image onPress={Actions.loginScreen} style={styles.mail} source={require('../img/Mail.png')} />
+            <Image onPress={Actions.loginScreen} style={styles.icon} source={require('../img/Home.png')} />
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={Actions.ask}>
+            <Image style={styles.icon} source={require('../img/Mail.png')} />
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Image onPress={Actions.loginScreen} style={styles.home} source={require('../img/Home.png')} />
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Image onPress={Actions.loginScreen} style={styles.person} source={require('../img/Person.png')} />
+            <Image onPress={Actions.loginScreen} style={styles.icon} source={require('../img/Person.png')} />
           </TouchableOpacity>
 
 
@@ -44,26 +44,19 @@ const styles={
       alignItems: 'center',
       justifyContent: 'space-around',
       borderBottomColor: 'transparent',
-      borderTopColor: '#419BF9',
+      borderTopColor: 'transparent',
       borderRightColor: 'transparent',
       borderLeftColor: 'transparent',
-      borderWidth: 5
+      borderWidth: 1
 
     },
-    home: {
-      height: 40,
-      width: 40,
+    icon: {
+      height: 25,
+      width: 25
 
 
     },
-    mail: {
-      height: 40,
-      width: 40
-    },
-    person: {
-      height: 40,
-      width: 40
-    }
+
 
 
 };
