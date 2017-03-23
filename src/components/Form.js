@@ -16,7 +16,7 @@ import SignupSection from './SignupSection';
 
 import usernameImg from '../images/username.png';
 import passwordImg from '../images/password.png';
-import spinner from '../images/loading.gif';
+import spinner from '../images/ring.gif';
 const MARGIN = 40;
 
 export default class Form extends Component {
@@ -49,17 +49,17 @@ export default class Form extends Component {
 			.then((response) => {
 				console.log(JSON.stringify(response["url"]))
 				if(response["url"].toString() == "http://127.0.0.1:8000/accounts/profile/") {
-					Actions.Relationships();
+					Actions.relationships
 				}
 				else {
 					console.log('fail')
 					this.setState({ error: 'wrong username and password' });
-					Actions.Relationships();
+					Actions.relationships
 				}
 			});
 	} catch(error) {
 		console.log(error)
-		Actions.Relationships();
+		Actions.relationships
 	}
 }
 	_onPress(event) {
@@ -85,7 +85,7 @@ export default class Form extends Component {
 			this.growAnimated.setValue(0);
 			this.setState({showProgress: true})
 		 // this.testHTTP(); IMPLEMENT THIS METHOD WHEN WE WANT TO TEST SERVERS
-		 Actions.relationships();
+		  Actions.relationships()
 		}, 2300);
 	}
 
