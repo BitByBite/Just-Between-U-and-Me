@@ -17,11 +17,8 @@ export default class BottomNav extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity>
-<<<<<<< HEAD
             <Image onPress={Actions.loginScreen} style={styles.icon} source={require('../img/Person.png')} />
-=======
             <Image onPress={Actions.App} style={styles.person} source={require('../img/Person.png')} />
->>>>>>> f2d96122e30d37bc388f3cfc204b32db6a80df5b
           </TouchableOpacity>
         </View>
     );
