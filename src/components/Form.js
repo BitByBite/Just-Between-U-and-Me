@@ -7,15 +7,16 @@ import {
 	Animated,
 	TouchableOpacity,
 	Text,
-
+	Easing,
+	Image
 } from 'react-native';
-
+import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 import UserInput from './UserInput';
 import SignupSection from './SignupSection';
 
 import usernameImg from '../images/username.png';
 import passwordImg from '../images/password.png';
-
+import spinner from '../images/loading.gif';
 const MARGIN = 40;
 
 export default class Form extends Component {
@@ -29,10 +30,11 @@ export default class Form extends Component {
 		this._onPress = this._onPress.bind(this);
 		this.testHttp = this.testHTTP.bind(this);
 	}
-	 testHTTP(event) {
+	async testHTTP(event) {
 		 let username = this.state.username;
 		 let password = this.state.password;
 		 console.log('username: ' + username)
+		 try {
 		let response =  fetch(`http://127.0.0.1:8000/`, {
 				method: 'POST',
 				headers: {
@@ -47,15 +49,19 @@ export default class Form extends Component {
 			.then((response) => {
 				console.log(JSON.stringify(response["url"]))
 				if(response["url"].toString() == "http://127.0.0.1:8000/accounts/profile/") {
-					Actions.SecondScreen();
+					Actions.Relationships();
 				}
 				else {
 					console.log('fail')
 					this.setState({ error: 'wrong username and password' });
+					Actions.Relationships();
 				}
 			});
+	} catch(error) {
+		console.log(error)
+		Actions.Relationships();
 	}
-
+}
 	_onPress(event) {
 		if (this.state.isLoading) return;
 
@@ -78,7 +84,8 @@ export default class Form extends Component {
 			this.buttonAnimated.setValue(0);
 			this.growAnimated.setValue(0);
 			this.setState({showProgress: true})
-			this.testHTTP();
+		 // this.testHTTP(); IMPLEMENT THIS METHOD WHEN WE WANT TO TEST SERVERS
+		 Actions.relationships();
 		}, 2300);
 	}
 
