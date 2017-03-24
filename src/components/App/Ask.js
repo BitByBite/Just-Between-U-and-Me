@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, TextInput } from 'react-native';
+import BottomNav from './BottomNav';
 
 
 
@@ -7,26 +8,34 @@ export default class Ask extends Component {
   render() {
     return (
       <View>
-        <View>
+            <View>
+              <View>
 
+              </View>
+
+              <View>
+                <View style={styles.views}>
+                  <TextInput
+                    style={styles.smallText}
+
+                  />
+                </View>
+
+                <View style={styles.views}>
+                  <TextInput
+                    style={styles.largeText}
+
+                    multiline={true}
+                  />
+                </View>
+              </View>
+
+            </View>
+
+            <View>
+              <BottomNav />
+            </View>
         </View>
-
-        <View>
-          <View style={styles.views}>
-            <TextInput
-              style={styles.smallText}
-            />
-          </View>
-
-          <View style={styles.views}>
-            <TextInput
-              style={styles.largeText}
-
-              multiline={true}
-            />
-          </View>
-        </View>
-      </View>
     );
   }
 }

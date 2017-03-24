@@ -34,11 +34,13 @@ export default class Main extends Component {
 						animation='fade'
 						hideNavBar={true}
 					/>
-                    <Scene key="gender"
-                        component={Gender}
-                        animation='fade'
-                        hideNavBar={true}
-                    />
+
+          <Scene key="gender"
+          	component={Gender}
+            animation='fade'
+            hideNavBar={true}
+          />
+
 					<Scene key="aboutMe"
 						component={AboutMe}
 						animation='fade'
@@ -62,6 +64,7 @@ export default class Main extends Component {
 						animation='fade'
 						hideNavBar={true}
 					/>
+
 
 					<Scene key='ask'
 						component={Ask}
