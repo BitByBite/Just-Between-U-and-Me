@@ -4,6 +4,7 @@ import {
 	View,
 	Text,
 	Image,
+	ScrollView
 } from 'react-native';
 import Wallpaper from '../Wallpaper';
 import BottomNav from './BottomNav';
@@ -13,11 +14,11 @@ import TopNav from './TopNav';
 export default class Profile extends Component {
 	render() {
 		return (
-      <Wallpaper>
-        <ProfileInfo />
+			<Wallpaper>
+				<ProfileInfo />
 				<TopNav />
-        <BottomNav />
-      </Wallpaper>
+				<BottomNav />
+			</Wallpaper>
 		);
 	}
 }
