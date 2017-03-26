@@ -25,11 +25,6 @@ export default class BottomNav extends Component {
 }
 
 const styles={
-    space: {
-      justifyContent: 'flex-end',
-      backgroundColor: '#f3f3f3',
-      paddingTop: 620,
-    },
     bar: {
       alignSelf: 'stretch',
       height: 50,
@@ -42,8 +37,7 @@ const styles={
       borderTopColor: 'transparent',
       borderRightColor: 'transparent',
       borderLeftColor: 'transparent',
-      borderWidth: 1
-
+      borderWidth: 1,
     },
     icon: {
       height: 25,

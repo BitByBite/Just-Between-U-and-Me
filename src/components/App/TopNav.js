@@ -1,66 +1,79 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
-import { Actions, ActionConst } from 'react-native-router-flux';
-import Swiper from 'react-native-swiper';
+import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 import Panel from '../Panel';
+import CommentPanels from './CommentPanels';
+
 
 //Bar is positioned with padding someone needs to fix so looks the same on all devices
 export default class TopNav extends Component {
-  constructor() {
-    super()
-    this.state = ({
-      opacity1: 0,
+  constructor(props) {
+    super(props);
+    this.state = {
+      opacity1: 1,
       opacity2: .2,
       opacity3: .2,
-      index: 1
-    });
+    };
 
   }
+
+
+  onPressQuestion = (event) => {
+    Actions.CommentPanels,
+    this.setState({opacity1: 1, opacity2: .2, opacity3: .2})
+  }
+  onPressAnswer = (event) => {
+    Actions.CommentPanels,
+    this.setState({opacity1: .2, opacity2: 1, opacity3: .2})
+  }
+  onPressLiked = (event) => {
+    Actions.CommentPanels,
+    this.setState({opacity1: .2, opacity2: .2, opacity3: 1})
+  }
+
   render() {
     return (
       <View>
         <View style={styles.bar}>
-          <TouchableOpacity>
-            <Image onPress={Actions.loginScreen} style={styles.icon1} source={require('../img/Questions.png')} />
-            <Text style={styles.text}>Questions</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Image style={styles.icon2} source={require('../img/Answers.png')} />
-            <Text>Answered</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Image onPress={Actions.loginScreen} style={styles.icon3} source={require('../img/Likes.png')} />
-            <Text>Liked</Text>
-          </TouchableOpacity>
+          <View style={{opacity: this.state.opacity1}}>
+            <TouchableOpacity onPress={this.onPressQuestion} >
+              <Image style={styles.icon1} source={require('../img/Questions.png')} />
+              <Text style={styles.text}>Questions</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{opacity: this.state.opacity2}}>
+            <TouchableOpacity onPress={this.onPressAnswer} >
+              <Image style={styles.icon2} source={require('../img/Answers.png')} />
+              <Text>Answered</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={{opacity: this.state.opacity3}}>
+            <TouchableOpacity onPress={this.onPressLiked}>
+              <Image onPress={Actions.loginScreen} style={styles.icon3} source={require('../img/Likes.png')} />
+              <Text>Liked</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-
         <View style={styles.pages}>
-          <Swiper style={styles.wrapper}
-            showsButtons={true}
-            loop={false}
-            pager={true}
-          >
-            <View style={styles.slide}>
-              <ScrollView style={styles.questions}>
-                <Panel title="A Panel with short content text" loveCounter={12} responseCounter={7}>
-                  <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
-                </Panel>
-                <Panel title="I am currently having trouble making dank memes pls help no lov so ronry" loveCounter={12} responseCounter={7}>
-                  <Text>forgive english, i am Russia.i come to study clothing and fashion at American university. i am here little time and i am very hard stress. i am gay also and this very difficult for me, i am very religion person. i never act to be gay with other men before. but after i am in america 6 weeks i am my friend together he is gay also. He was show me American fashion and then we are kiss.
-                </Text>
-                </Panel>
-                <Panel title="Another Panel" loveCounter={0} responseCounter={7}>
-                  <Text>Lorem ipsum dolor sit amet...</Text>
-                </Panel>
-              </ScrollView>
-              <Text>2</Text>
-            </View>
-            <View style={styles.slide3}>
-              <Text>3</Text>
-            </View>
-          </Swiper>
+        <Router>
+          <Scene key="root">
+            <Scene key="QuestionPanels"
+             component={CommentPanels}
+             title="Questions"
+             hideNavBar={true}
+            />
+            <Scene key="AnsweredPanels"
+             component={CommentPanels}
+             title="Answered"
+             hideNavBar={true}
+            />
+            <Scene key="LikedPanels"
+             component={CommentPanels}
+             title="Liked"
+             hideNavBar={true}
+            />
+          </Scene>
+        </Router>
         </View>
       </View>
     );
@@ -99,17 +112,17 @@ const styles = {
   icon1: {
     height: 25,
     width: 25,
-    opacity: 1
+    alignSelf: 'center'
   },
   icon2: {
     height: 25,
     width: 25,
-    opacity: .2
+    alignSelf: 'center'
   },
   icon3: {
     height: 25,
     width: 25,
-    opacity: .2
+    alignSelf: 'center'
   },
   slide: {
     flex: 1,
