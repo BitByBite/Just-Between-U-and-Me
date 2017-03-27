@@ -5,39 +5,28 @@ import BottomNav from './BottomNav';
 
 
 export default class Ask extends Component {
-  render() {
-    return (
-      <View>
+    render() {
+        return (
             <View>
-              <View>
+                <View>
+                    <View>
+                        <View style={styles.views}>
+                            <TextInput style={styles.smallText}/>
+                        </View>
 
-              </View>
-
-              <View>
-                <View style={styles.views}>
-                  <TextInput
-                    style={styles.smallText}
-
-                  />
+                        <View style={styles.views}>
+                            <TextInput
+                            style={styles.largeText}
+                            multiline={true}/>
+                        </View>
+                    </View>
                 </View>
-
-                <View style={styles.views}>
-                  <TextInput
-                    style={styles.largeText}
-
-                    multiline={true}
-                  />
+                <View>
+                    <BottomNav />
                 </View>
-              </View>
-
             </View>
-
-            <View>
-              <BottomNav />
-            </View>
-        </View>
-    );
-  }
+        );
+    }
 }
 
 const styles={

@@ -12,12 +12,12 @@ export default class BottomNav extends Component {
             <Image onPress={Actions.loginScreen} style={styles.icon} source={require('../img/Home.png')} />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={Actions.ask}>
-            <Image style={styles.icon} source={require('../img/Mail.png')} />
+          <TouchableOpacity>
+            <Image onPress={Actions.ask} style={styles.icon} source={require('../img/Mail.png')} />
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={Actions.app}>
-            <Image  style={styles.icon} source={require('../img/Person.png')} />
+          <TouchableOpacity>
+            <Image onPress={Actions.app} style={styles.icon} source={require('../img/Person.png')} />
           </TouchableOpacity>
         </View>
     );
