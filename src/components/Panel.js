@@ -9,22 +9,45 @@ class Panel extends Component {
         this.icons = {
             'up': require('./img/arrowUp.png'),
             'down': require('./img/downArrow.png'),
-            'heartFilled': require('./img/heartFilled.png'),
-            'hearUnfilled': require('./img/heatUnfilled.png'),
-            'questionBox': require('./img/questionBox.png'),
         };
-
+        /*
         this.hearts = {
             'heartFilled': require('./img/heartFilled.png'),
             'hearUnfilled': require('./img/heatUnfilled.png'),
         }
-
+        */
         this.state = {
             title: props.title,
+            responseCounter: props.responseCounter,
+            loveCounter: props.loveCounter,
             expanded: false,
-            animation: new Animated.Value()
+            animation: new Animated.Value(),
+            isClicked: false,
         };
+            
+        activateButton = isClicked => {
+        const newState = Object.assign(
+            {},
+            {
+                isClicked: false
+            },
+            { isClicked: true },
+        )
+        this.setState(newState);
     }
+
+    }
+    /*
+    _onClick() {
+        if (this.clicked == false) {
+            this.clicked = true;
+        }
+        else {
+            this.clicked = false;
+        }
+        this.render();
+    }
+    */
 
     toggle() {
         let initialValue = this.state.expanded ? this.state.maxHeight + this.state.minHeight : this.state.minHeight,
@@ -61,12 +84,19 @@ class Panel extends Component {
         if (this.state.expanded) {
             icon = this.icons['up'];
         }
+        /*
+        let hearts = this.hearts['hearUnfilled'];
 
-        let hearts = this.hearts['heartFilled'];
-
-        if (this.props.loveCounter < 1) {
-            hearts = this.hearts['hearUnfilled'];
+        if (this.clicked == true) {
+            hearts = this.hearts['heartFilled'];
+            console.log("hi")
         }
+        else {
+            hearts = this.hearts['hearUnfilled'];
+            console.log("bye")
+        }
+        */
+        const {isClicked} = this.state
 
         return (
             <View style={styles.hmmm}>
@@ -84,17 +114,17 @@ class Panel extends Component {
                 </Animated.View>
                 <View style={styles.bottom}>
                     <View style={styles.things}>
-                        <View style={styles.imgs}>
-                            <Image source={hearts} />
-                        </View>
-                        <Text style={styles.counters}>{this.props.loveCounter} people sent love</Text>
+                        <TouchableHighlight style={styles.imgs} onPress={() => activateButton('isCLicked')}>
+                            <Image source={isClicked ? require('./img/heartFilled.png') : require('./img/heatUnfilled.png') } />
+                        </TouchableHighlight>
+                        <Text style={styles.counters}>{this.state.loveCounter} people sent love</Text>
                     </View>
 
                     <View style={styles.things}>
                         <View style={styles.imgs}>
                             <Image source={require('./img/questionBox.png')} style={styles.imgs} />
                         </View>
-                        <Text style={styles.counters}>{this.props.responseCounter} responses</Text>
+                        <Text style={styles.counters}>{this.state.responseCounter} responses</Text>
                     </View>
 
                     <TouchableHighlight
