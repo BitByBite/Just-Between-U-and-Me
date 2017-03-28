@@ -4,7 +4,7 @@ import {
 	StyleSheet,
 	View,
 	Text,
-	LinkingIOS
+	Linking
 } from 'react-native';
 
 
@@ -15,7 +15,12 @@ export default class SignupSection extends Component {
 			<View style={styles.container}>
 				<Text style={styles.text}>Don't have us at your school?</Text>
 				<View style={width=2}/>
-				<Text style={styles.text2} onPress={()=> LinkingIOS.openURL('http://www.bitbybite.co')}> Contact us</Text>
+				<Text style={styles.text2} onPress={()=> {
+					let url = 'http://www.bitbybite.co';
+					if(Linking.canOpenURL(url)) {
+						Linking.openURL(url);
+					}
+				}}> Contact us</Text>
 			</View>
 		);
 	}

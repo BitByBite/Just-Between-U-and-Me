@@ -21,8 +21,7 @@ import spinner from '../images/ring.gif';
 const MARGIN = 40;
 
 export default class Form extends Component {
-
-		constructor() {
+	constructor() {
 	    super();
 			this.state = ({ username: 'default', password: 'default', isLoading:false, error: '' });
 
@@ -36,7 +35,7 @@ export default class Form extends Component {
 		 let password = this.state.password;
 		 console.log('username: ' + username)
 		 try {
-		let response =  fetch(`http://127.0.0.1:8000/`, {
+			 let response =  fetch(`http://127.0.0.1:8000/`, {
 				method: 'POST',
 				headers: {
 					'Accept': 'application/json',
@@ -58,11 +57,11 @@ export default class Form extends Component {
 					Actions.relationships
 				}
 			});
-	} catch(error) {
-		console.log(error)
-		Actions.relationships
+		} catch(error) {
+			console.log(error)
+			Actions.relationships
+		}
 	}
-}
 	_onPress(event) {
 		if (this.state.isLoading) return;
 
