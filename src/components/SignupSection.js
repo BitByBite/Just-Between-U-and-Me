@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import Dimensions from 'Dimensions';
 import {
 	StyleSheet,
 	View,
@@ -7,7 +6,7 @@ import {
 	Linking
 } from 'react-native';
 
-
+const Dimensions = require('./Dimensions');
 
 export default class SignupSection extends Component {
 	render() {
@@ -26,14 +25,13 @@ export default class SignupSection extends Component {
 	}
 }
 
-const DEVICE_WIDTH = Dimensions.get('window').width;
-const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 2,
 		top: 30,
-		width: DEVICE_WIDTH,
+		width: Dimensions.WIDTH,
+		height: Dimensions.HEIGHT,
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		paddingLeft: 25,

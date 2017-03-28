@@ -19,59 +19,62 @@ const SIZE = 40;
 const FONT_SIZE = 20;
 const GLOBAL_BUTTON_SIZE = 8;
 
+const Dimensions = require('./Dimensions');
+
 //actuall thing
 export default class Relationships extends Component {
 	render() {
 		return (
-			<View style={styles.container}>
-				<Header text={'Profile Setup'} />
+			<View>
+				<View style={styles.container}>
+					<Header text={'Profile Setup'} />
 
-				<View style={styles.title}>
-					<Text style={styles.titleStyle}>{"⠀"}Relationships{"⠀"}</Text>
+					<View style={styles.title}>
+						<Text style={styles.titleStyle}>{"⠀"}Relationships{"⠀"}</Text>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Family{"⠀"}</Text>
+						<RadioForm
+							radio_props={[
+								{ label: 'Live with both parents', value: 0 },
+								{ label: 'Live with one parent', value: 0 },
+								{ label: 'Live with relatives', value: 0 }
+							]}
+							buttonSize={GLOBAL_BUTTON_SIZE}
+							initial={null}
+							onPress={(value) => { this.setState({ value: value }) }}
+						/>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Sibilings{"⠀"}</Text>
+						<RadioForm
+							radio_props={[
+								{ label: 'Only child', value: 0 },
+								{ label: 'Have half/step siblings', value: 0 },
+								{ label: 'Have brother/sisters', value: 0 }
+							]}
+							buttonSize={GLOBAL_BUTTON_SIZE}
+							initial={null}
+							onPress={(value) => { this.setState({ value: value }) }}
+						/>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Birth order{"⠀"}</Text>
+						<RadioForm
+							radio_props={[
+								{ label: 'Oldest sibiling', value: 0 },
+								{ label: 'Middle sibiling', value: 1 },
+								{ label: 'Youngest sibiling', value: 0 }
+							]}
+							buttonSize={GLOBAL_BUTTON_SIZE}
+							initial={null}
+							onPress={(value) => { this.setState({ value: value }) }}
+						/>
+					</View>
 				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Family{"⠀"}</Text>
-					<RadioForm
-						radio_props={[
-							{ label: 'Live with both parents', value: 0 },
-							{ label: 'Live with one parent', value: 0 },
-							{ label: 'Live with relatives', value: 0 }
-						]}
-						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={null}
-						onPress={(value) => { this.setState({ value: value }) }}
-					/>
-				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Sibilings{"⠀"}</Text>
-					<RadioForm
-						radio_props={[
-							{ label: 'Only child', value: 0 },
-							{ label: 'Have half/step siblings', value: 0 },
-							{ label: 'Have brother/sisters', value: 0 }
-						]}
-						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={null}
-						onPress={(value) => { this.setState({ value: value }) }}
-					/>
-				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Birth order{"⠀"}</Text>
-					<RadioForm
-						radio_props={[
-							{ label: 'Oldest sibiling', value: 0 },
-							{ label: 'Middle sibiling', value: 1 },
-							{ label: 'Youngest sibiling', value: 0 }
-						]}
-						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={null}
-						onPress={(value) => { this.setState({ value: value }) }}
-					/>
-				</View>
-
 				<BackNext destination={Actions.ethnicity}/>
 			</View>
 		);
@@ -80,8 +83,9 @@ export default class Relationships extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: `column`,
-		flex: 1,
+		flexDirection: 'column',
+		width: Dimensions.WIDTH,
+		height: Dimensions.HEIGHT * 0.94
 	},
 	radios: {
 		paddingLeft: 30,

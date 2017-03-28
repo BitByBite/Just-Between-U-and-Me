@@ -6,9 +6,12 @@ import {
 	TouchableOpacity,
 	Animated,
 	Easing,
-	Text
+	Text,
+	ScrollView
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
+
+const Dimensions = require('./Dimensions');
 
 //other components
 import BackNext from './BackNext';
@@ -23,66 +26,69 @@ const GLOBAL_BUTTON_SIZE = 8;
 export default class Ethnicity extends Component {
 	render() {
 		return (
-			<View style={styles.container}>
-				<Header text={'Profile Setup'} />
+			<ScrollView>
+				<View style={styles.container}>
+					<Header text={'Profile Setup'} />
 
-				<View style={styles.title}>
-					<Text style={styles.titleStyle}>{"⠀"}Ethnicity{"⠀"}</Text>
+					<View style={styles.title}>
+						<Text style={styles.titleStyle}>{"⠀"}Ethnicity{"⠀"}</Text>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Citizenship{"⠀"}</Text>
+						<RadioForm
+							radio_props={[
+								{ label: 'Born in the U.S.', value: 0 },
+								{ label: 'Born outside the U.S.', value: 0 },
+								{ label: 'Migrated to the U.S.', value: 0 }
+							]}
+							buttonSize={GLOBAL_BUTTON_SIZE}
+							initial={null}
+							onPress={(value) => { this.setState({ value: value }) }}
+						/>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Geneology{"⠀"}</Text>
+						<RadioForm
+							radio_props={[
+								{ label: 'First generation - migrated to the U.S.', value: 0 },
+								{ label: '2nd generation - born in the U.S.', value: 0 },
+								{ label: '3rd generation - parents born in the U.S.', value: 0 },
+								{ label: '4th+ generation - grandparents born in the U.S.', value: 0 }
+							]}
+							buttonSize={GLOBAL_BUTTON_SIZE}
+							initial={null}
+							onPress={(value) => { this.setState({ value: value }) }}
+						/>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Ethnic Group{"⠀"}</Text>
+						<RadioForm
+							radio_props={[
+								{ label: 'Both parents are the same ethnicity', value: 0 },
+								{ label: 'Mixed ethnicity', value: 1 },
+								{ label: 'Don\'t know my ethnicity', value: 0 }
+							]}
+							buttonSize={GLOBAL_BUTTON_SIZE}
+							initial={null}
+							onPress={(value) => { this.setState({ value: value }) }}
+						/>
+					</View>
 				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Citizenship{"⠀"}</Text>
-					<RadioForm
-						radio_props={[
-							{ label: 'Born in the U.S.', value: 0 },
-							{ label: 'Born outside the U.S.', value: 0 },
-							{ label: 'Migrated to the U.S.', value: 0 }
-						]}
-						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={null}
-						onPress={(value) => { this.setState({ value: value }) }}
-					/>
+				<View style={{flex:1}}>
+					<BackNext destination={Actions.gender}/>
 				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Geneology{"⠀"}</Text>
-					<RadioForm
-						radio_props={[
-							{ label: 'First generation - migrated to the U.S.', value: 0 },
-							{ label: '2nd generation - born in the U.S.', value: 0 },
-							{ label: '3rd generation - parents born in the U.S.', value: 0 },
-							{ label: '4th+ generation - grandparents born in the U.S.', value: 0 }
-						]}
-						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={null}
-						onPress={(value) => { this.setState({ value: value }) }}
-					/>
-				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Ethnic Group{"⠀"}</Text>
-					<RadioForm
-						radio_props={[
-							{ label: 'Both parents are the same ethnicity', value: 0 },
-							{ label: 'Mixed ethnicity', value: 1 },
-							{ label: 'Don\'t know my ethnicity', value: 0 }
-						]}
-						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={null}
-						onPress={(value) => { this.setState({ value: value }) }}
-					/>
-				</View>
-
-				<BackNext destination={Actions.gender}/>
-			</View>
+			</ScrollView>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: `column`,
-		flex: 1,
+		flexDirection: 'column',
+		flex: 1
 	},
 	radios: {
 		paddingLeft: 30,

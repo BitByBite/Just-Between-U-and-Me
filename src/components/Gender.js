@@ -7,9 +7,12 @@ import {
 	Animated,
 	Easing,
 	Text,
-	TextInput
+	TextInput,
+	ScrollView
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
+
+const Dimensions = require('./Dimensions');
 
 //other components
 import BackNext from './BackNext';
@@ -24,51 +27,52 @@ const GLOBAL_BUTTON_SIZE = 8;
 export default class Gender extends Component {
 	render() {
 		return (
-			<View style={styles.container}>
-				<Header text={'Profile Setup'} />
+			<View>
+				<View style={styles.container}>
+					<Header text={'Profile Setup'} />
 
-				<View style={styles.title}>
-					<Text style={styles.titleStyle}>{"⠀"}Gender Identity{"⠀"}</Text>
+					<View style={styles.title}>
+						<Text style={styles.titleStyle}>{"⠀"}Gender Identity{"⠀"}</Text>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Date of Birth{"⠀"}</Text>
+						<TextInput
+							keyboardType="number-pad"
+							onChangeText={(value) => { this.setState({ value: value }) }}
+							placeholder="MM/DD/YYYY"
+							style={styles.textInput}
+						/>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Gender{"⠀"}</Text>
+						<RadioForm
+							radio_props={[
+								{ label: 'Male', value: 0 },
+								{ label: 'Female', value: 0 },
+								{ label: 'Prefer not to answer', value: 0 }
+							]}
+							buttonSize={GLOBAL_BUTTON_SIZE}
+							initial={null}
+							onPress={(value) => { this.setState({ value: value }) }}
+						/>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Sexual Orientation{"⠀"}</Text>
+						<RadioForm
+							radio_props={[
+								{ label: 'Heterosexual', value: 0 },
+								{ label: 'Homosexual', value: 1 },
+								{ label: 'Prefer not to answer', value: 0 }
+							]}
+							buttonSize={GLOBAL_BUTTON_SIZE}
+							initial={null}
+							onPress={(value) => { this.setState({ value: value }) }}
+						/>
+					</View>
 				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Date of Birth{"⠀"}</Text>
-					<TextInput
-						keyboardType="number-pad"
-						onChangeText={(value) => { this.setState({ value: value }) }}
-						placeholder="MM/DD/YYYY"
-						style={styles.textInput}
-					/>
-				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Gender{"⠀"}</Text>
-					<RadioForm
-						radio_props={[
-							{ label: 'Male', value: 0 },
-							{ label: 'Female', value: 0 },
-							{ label: 'Prefer not to answer', value: 0 }
-						]}
-						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={null}
-						onPress={(value) => { this.setState({ value: value }) }}
-					/>
-				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Sexual Orientation{"⠀"}</Text>
-					<RadioForm
-						radio_props={[
-							{ label: 'Heterosexual', value: 0 },
-							{ label: 'Homosexual', value: 1 },
-							{ label: 'Prefer not to answer', value: 0 }
-						]}
-						buttonSize={GLOBAL_BUTTON_SIZE}
-						initial={null}
-						onPress={(value) => { this.setState({ value: value }) }}
-					/>
-				</View>
-
 				<BackNext destination={Actions.aboutMe}/>
 			</View>
 		);
@@ -77,8 +81,9 @@ export default class Gender extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: `column`,
-		flex: 1,
+		flexDirection: 'column',
+		width: Dimensions.WIDTH,
+		height: Dimensions.HEIGHT * 0.94
 	},
 	radios: {
 		paddingLeft: 30,

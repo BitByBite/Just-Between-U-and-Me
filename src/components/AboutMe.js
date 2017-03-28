@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
 
+const Dimensions = require('./Dimensions');
+
 //other components
 import BackNext from './BackNext';
 import RadioForm from 'react-native-simple-radio-button';
@@ -25,54 +27,55 @@ const GLOBAL_BUTTON_SIZE = 8;
 export default class AboutMe extends Component {
 	render() {
 		return (
-			<View style={styles.container}>
-				<Header text={'Profile Setup'} />
+			<View>
+				<View style={styles.container}>
+					<Header text={'Profile Setup'} />
 
-				<View style={styles.title}>
-					<Text style={styles.titleStyle}>{"⠀"}All About Me{"⠀"}</Text>
+					<View style={styles.title}>
+						<Text style={styles.titleStyle}>{"⠀"}All About Me{"⠀"}</Text>
+					</View>
+
+					<View style={styles.radios}>
+						<Text style={styles.titles}>Check all that apply below{"⠀"}</Text>
+						<Checkbox
+							label='I am in a dating relationship'
+							onChange={(checked) => this.setState({ value: checked })}
+						/>
+						<Checkbox
+							label='I am bullied or bully people'
+							onChange={(checked) => this.setState({ value: checked })}
+						/>
+						<Checkbox
+							label='I do drugs or drink alcohol occasionally'
+							onChange={(checked) => this.setState({ value: checked })}
+						/>
+						<Checkbox
+							label='My parents are divorced'
+							onChange={(checked) => this.setState({ value: checked })}
+						/>
+						<Checkbox
+							label='I have questions about my sexuality'
+							onChange={(checked) => this.setState({ value: checked })}
+						/>
+						<Checkbox
+							label='I have a disease or chronic illness'
+							onChange={(checked) => this.setState({ value: checked })}
+						/>
+						<Checkbox
+							label='I have a handicap or disability'
+							onChange={(checked) => this.setState({ value: checked })}
+						/>
+						<Checkbox
+							label='I am despressed or hurt myself'
+							onChange={(checked) => this.setState({ value: checked })}
+						/>
+						<Checkbox
+							label='I am angry or hurt others'
+							onChange={(checked) => this.setState({ value: checked })}
+						/>
+
+					</View>
 				</View>
-
-				<View style={styles.radios}>
-					<Text style={styles.titles}>Check all that apply below{"⠀"}</Text>
-					<Checkbox
-						label='I am in a dating relationship'
-						onChange={(checked) => this.setState({ value: checked })}
-					/>
-					<Checkbox
-						label='I am bullied or bully people'
-						onChange={(checked) => this.setState({ value: checked })}
-					/>
-					<Checkbox
-						label='I do drugs or drink alcohol occasionally'
-						onChange={(checked) => this.setState({ value: checked })}
-					/>
-					<Checkbox
-						label='My parents are divorced'
-						onChange={(checked) => this.setState({ value: checked })}
-					/>
-					<Checkbox
-						label='I have questions about my sexuality'
-						onChange={(checked) => this.setState({ value: checked })}
-					/>
-					<Checkbox
-						label='I have a disease or chronic illness'
-						onChange={(checked) => this.setState({ value: checked })}
-					/>
-					<Checkbox
-						label='I have a handicap or disability'
-						onChange={(checked) => this.setState({ value: checked })}
-					/>
-					<Checkbox
-						label='I am despressed or hurt myself'
-						onChange={(checked) => this.setState({ value: checked })}
-					/>
-					<Checkbox
-						label='I am angry or hurt others'
-						onChange={(checked) => this.setState({ value: checked })}
-					/>
-
-				</View>
-
 				<BackNext destination={Actions.congrats}/>
 			</View>
 		);
@@ -81,8 +84,9 @@ export default class AboutMe extends Component {
 
 const styles = StyleSheet.create({
 	container: {
-		flexDirection: `column`,
-		flex: 1,
+		flexDirection: 'column',
+		width: Dimensions.WIDTH,
+		height: Dimensions.HEIGHT * 0.94
 	},
 	radios: {
 		paddingLeft: 30,
