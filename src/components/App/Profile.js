@@ -14,19 +14,24 @@ import TopNav from './TopNav';
 export default class Profile extends Component {
 	render() {
 		return (
-			<View style={{flex: 1}}>
-				<ProfileInfo />
-				<TopNav />
+			<View style={styles.top}>
+				<ScrollView>
+					<ProfileInfo />
+					<TopNav />
+				</ScrollView>
 				<BottomNav />
 			</View>
 		);
 	}
 }
 
-const styles = {
-questions: {
-  flex: 1,
-  backgroundColor: 'transparent',
-  paddingTop: 0
-},
-}
+const styles = StyleSheet.create({
+	questions: {
+	  	flex: 1,
+	  	backgroundColor: 'transparent',
+	  	paddingTop: 0
+	},
+  	top: {
+		flex: 1
+  	}
+});

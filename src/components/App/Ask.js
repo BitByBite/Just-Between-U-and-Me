@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, TextInput } from 'react-native';
 import BottomNav from './BottomNav';
 
-
-
 export default class Ask extends Component {
     render() {
         return (

@@ -113,5 +113,4 @@ const styles = StyleSheet.create({
 		textDecorationStyle: 'solid',
 		textDecorationColor: '#419BF9',
 	}
-
 });

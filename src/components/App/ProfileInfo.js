@@ -10,57 +10,59 @@ import BottomNav from './BottomNav';
 import * as Progress from 'react-native-progress';
 
 export default class ProfileInfo extends Component {
-
-
-  		constructor() {
-  	    super();
-  			this.state = ({
-          QuestionNumber: '21',
-          AnsweredNumber: '12',
-          Karma: '84',
-          Level: '7' });
-}
+  	constructor(props) {
+  	    super(props);
+  		this.state = ({
+        	QuestionNumber: '21',
+          	AnsweredNumber: '12',
+          	Karma: '84',
+          	Level: '7'
+		});
+	}
 	render() {
 		return (
-      <Wallpaper>
-			    <Text style={styles.text}>Christine Sanchez</Text>
-          <View style={styles.info}>
-            <Text style={styles.text2}>{this.state.QuestionNumber}</Text>
-            <Text style={styles.text2}>{this.state.AnsweredNumber}</Text>
-            <Text style={styles.text2}>{this.state.Karma}</Text>
-          </View>
-          <View style={styles.info2}>
-            <Text style={styles.text3}>Questions</Text>
-            <Text style={styles.text3}>Answered  </Text>
-            <Text style={styles.text3}>Karma   </Text>
-          </View>
-          <View style={styles.levelView}>
-            <Text style={styles.text}>Level </Text>
-            <Text style={styles.text}>{this.state.Level}</Text>
-          </View>
-          <View style={styles.progressBar}>
-            <Progress.Bar
-              progress={0.3}
-              width={200}
-              color={'white'} />
-          </View>
-      </Wallpaper>
+			<View>
+      			<Wallpaper>
+			    	<Text style={styles.text}>Christine Sanchez</Text>
+          			<View style={styles.info}>
+	            		<Text style={styles.text2}>{this.state.QuestionNumber}</Text>
+			            <Text style={styles.text2}>{this.state.AnsweredNumber}</Text>
+			            <Text style={styles.text2}>{this.state.Karma}</Text>
+		          	</View>
+          			<View style={styles.info2}>
+			            <Text style={styles.text3}>Questions</Text>
+			            <Text style={styles.text3}>Answered  </Text>
+			            <Text style={styles.text3}>Karma   </Text>
+			       	</View>
+          			<View style={styles.levelView}>
+            			<Text style={styles.text}>Level </Text>
+            			<Text style={styles.text}>{this.state.Level}</Text>
+          			</View>
+          			<View style={styles.progressBar}>
+            			<Progress.Bar
+              				progress={0.3}
+              				width={200}
+              				color={'white'}
+						/>
+          			</View>
+      			</Wallpaper>
+			</View>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
 	info: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center'
+	    flexDirection: 'row',
+	    justifyContent: 'space-around',
+	    alignItems: 'center'
 	},
-  info2: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    bottom: 5
-  },
+	info2: {
+	    flexDirection: 'row',
+	    justifyContent: 'space-around',
+	    alignItems: 'center',
+	    bottom: 5
+  	},
 	text: {
 		color: 'white',
 		fontFamily: 'Avenir',
@@ -94,6 +96,7 @@ const styles = StyleSheet.create({
   progressBar: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+	paddingBottom: 23
   }
 });
