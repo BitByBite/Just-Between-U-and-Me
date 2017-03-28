@@ -27,8 +27,8 @@ const GLOBAL_BUTTON_SIZE = 8;
 export default class Gender extends Component {
 	render() {
 		return (
-			<View>
-				<View style={styles.container}>
+			<View style={{height: Dimensions.HEIGHT}}>
+				<ScrollView style={{flex: 10}}>
 					<Header text={'Profile Setup'} />
 
 					<View style={styles.title}>
@@ -72,19 +72,16 @@ export default class Gender extends Component {
 							onPress={(value) => { this.setState({ value: value }) }}
 						/>
 					</View>
+				</ScrollView>
+				<View style={{flex: 0.2}}>
+					<BackNext destination={Actions.aboutMe}/>
 				</View>
-				<BackNext destination={Actions.aboutMe}/>
 			</View>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flexDirection: 'column',
-		width: Dimensions.WIDTH,
-		height: Dimensions.HEIGHT * 0.94
-	},
 	radios: {
 		paddingLeft: 30,
 		paddingTop: 15,

@@ -22,7 +22,7 @@ export default class ProfileInfo extends Component {
 	render() {
 		return (
 			<View>
-      			<Wallpaper>
+      			<Wallpaper gray={true}>
 			    	<Text style={styles.text}>Christine Sanchez</Text>
           			<View style={styles.info}>
 	            		<Text style={styles.text2}>{this.state.QuestionNumber}</Text>

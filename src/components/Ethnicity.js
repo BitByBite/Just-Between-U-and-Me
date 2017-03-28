@@ -26,8 +26,8 @@ const GLOBAL_BUTTON_SIZE = 8;
 export default class Ethnicity extends Component {
 	render() {
 		return (
-			<ScrollView>
-				<View style={styles.container}>
+			<View style={{height: Dimensions.HEIGHT}}>
+				<ScrollView style={{flex: 10}}>
 					<Header text={'Profile Setup'} />
 
 					<View style={styles.title}>
@@ -76,20 +76,16 @@ export default class Ethnicity extends Component {
 							onPress={(value) => { this.setState({ value: value }) }}
 						/>
 					</View>
-				</View>
-				<View style={{flex:1}}>
+				</ScrollView>
+				<View style={{flex: 0.2}}>
 					<BackNext destination={Actions.gender}/>
 				</View>
-			</ScrollView>
+			</View>
 		);
 	}
 }
 
 const styles = StyleSheet.create({
-	container: {
-		flexDirection: 'column',
-		flex: 1
-	},
 	radios: {
 		paddingLeft: 30,
 		paddingTop: 15,

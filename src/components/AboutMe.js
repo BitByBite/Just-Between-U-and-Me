@@ -6,7 +6,8 @@ import {
 	TouchableOpacity,
 	Animated,
 	Easing,
-	Text
+	Text,
+	ScrollView
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
 
@@ -27,8 +28,8 @@ const GLOBAL_BUTTON_SIZE = 8;
 export default class AboutMe extends Component {
 	render() {
 		return (
-			<View>
-				<View style={styles.container}>
+			<View style={{flex: 1}}>
+				<ScrollView style={{flex: 10}}>
 					<Header text={'Profile Setup'} />
 
 					<View style={styles.title}>
@@ -75,8 +76,10 @@ export default class AboutMe extends Component {
 						/>
 
 					</View>
+				</ScrollView>
+				<View style={{flex: 0.2}}>
+					<BackNext destination={Actions.congrats}/>
 				</View>
-				<BackNext destination={Actions.congrats}/>
 			</View>
 		);
 	}
