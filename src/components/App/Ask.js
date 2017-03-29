@@ -13,9 +13,7 @@ export default class Ask extends Component {
                         </View>
 
                         <View style={styles.views}>
-                            <TextInput
-                            style={styles.largeText}
-                            multiline={true}/>
+                            <TextInput style={styles.largeText} multiline={true}/>
                         </View>
                     </View>
                 </View>

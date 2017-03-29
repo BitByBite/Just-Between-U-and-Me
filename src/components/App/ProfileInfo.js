@@ -16,14 +16,15 @@ export default class ProfileInfo extends Component {
         	QuestionNumber: '21',
           	AnsweredNumber: '12',
           	Karma: '84',
-          	Level: '7'
+          	Level: '7',
+			Name: 'Christine Sanchez'
 		});
 	}
 	render() {
 		return (
 			<View>
       			<Wallpaper gray={true}>
-			    	<Text style={styles.text}>Christine Sanchez</Text>
+			    	<Text style={styles.text}>{this.state.Name}</Text>
           			<View style={styles.info}>
 	            		<Text style={styles.text2}>{this.state.QuestionNumber}</Text>
 			            <Text style={styles.text2}>{this.state.AnsweredNumber}</Text>
@@ -72,31 +73,31 @@ const styles = StyleSheet.create({
 		letterSpacing: 2,
     alignSelf: 'center'
 	},
-  text2: {
-      color: 'white',
+  	text2: {
+      	color: 'white',
   		fontFamily: 'Avenir-Heavy',
   		backgroundColor: 'transparent',
   		marginTop: 20,
   		fontSize: 18,
   		letterSpacing: 2,
-      alignSelf: 'center'
+      	alignSelf: 'center'
 	},
-  text3: {
-    color: 'white',
-    fontFamily: 'Avenir-Light',
-    backgroundColor: 'transparent',
-    fontSize: 12,
-    alignSelf: 'center'
-  },
-  levelView: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  progressBar: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-	paddingBottom: 23
-  }
+  	text3: {
+	    color: 'white',
+	    fontFamily: 'Avenir-Light',
+	    backgroundColor: 'transparent',
+	    fontSize: 12,
+	    alignSelf: 'center'
+  	},
+  	levelView: {
+	    flexDirection: 'row',
+	    justifyContent: 'center',
+	    alignItems: 'center'
+  	},
+  	progressBar: {
+	    flexDirection: 'row',
+	    justifyContent: 'center',
+	    alignItems: 'center',
+		paddingBottom: 23
+  	}
 });

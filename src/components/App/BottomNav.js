@@ -15,43 +15,28 @@ export default class BottomNav extends Component {
         };
     }
 
-  render() {
-    return (
-        /*
-        <View style={styles.bar}>
-          <TouchableOpacity>
-            <Image onPress={Actions.loginScreen} style={styles.icon} source={require('../img/Home.png')} />
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Image onPress={Actions.ask} style={styles.icon} source={require('../img/Mail.png')} />
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Image onPress={Actions.app} style={styles.icon} source={require('../img/Person.png')} />
-          </TouchableOpacity>
-        </View>
-        */
-        <View>
-            <TabNavigator>
-                <TabNavigator.Item
-                    selected={this.state.selectedTab === 'Home'}
-                    title="Home"
-                    renderIcon={() => <Image source={require('../img/Home.png')} style={styles.icon} />}
-                    onPress={() => this.setState({ selectedTab: 'Home' })}>
-                    <Profile />
-                </TabNavigator.Item>
-                <TabNavigator.Item
-                    selected={this.state.selectedTab === 'Ask'}
-                    title="Ask"
-                    renderIcon={() => <Image source={require('../img/Mail.png')} style={styles.icon} />}
-                    onPress={() => this.setState({ selectedTab: 'Ask'})}>
-                    <View>{Actions.ask}</View>
-                </TabNavigator.Item>
-            </TabNavigator>
-        </View>
-    );
-  }
+    render() {
+        return (
+            <View>
+                <TabNavigator>
+                    <TabNavigator.Item
+                        selected={this.state.selectedTab === 'Home'}
+                        title="Home"
+                        renderIcon={() => <Image source={require('../img/Home.png')} style={styles.icon} />}
+                        onPress={() => this.setState({ selectedTab: 'Home' })}>
+                        <Profile />
+                    </TabNavigator.Item>
+                    <TabNavigator.Item
+                        selected={this.state.selectedTab === 'Ask'}
+                        title="Ask"
+                        renderIcon={() => <Image source={require('../img/Mail.png')} style={styles.icon} />}
+                        onPress={() => this.setState({ selectedTab: 'Ask'})}>
+                        <Ask />
+                    </TabNavigator.Item>
+                </TabNavigator>
+            </View>
+        );
+    }
 }
 
 const styles=StyleSheet.create({
