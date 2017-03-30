@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, Button } from 'react-native';
+import { Text, View, TextInput, Button, Image } from 'react-native';
 import BottomNav from './BottomNav';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
+import TabNavigator from 'react-native-tab-navigator';
 
 export default class Ask extends Component {
     constructor(props) {
 	    super(props);
 			this.state = ({ question: '',
-            description: ''
-        });
+            description: '',
+            selectedTab: ''
 
+        });
     }
     onPressButton() {
 
@@ -22,6 +25,20 @@ export default class Ask extends Component {
                         <Text style={styles.textBold}>You </Text>
                         <Text style={styles.text}>and </Text>
                         <Text style={styles.textBold}>Me</Text>
+                    </View>
+                    <View style={styles.bar}>
+                        <TabNavigator>
+                            <TabNavigator.Item
+                                selected={this.state.selectedTab === 'Ask'}
+                                title=" "
+                                renderIcon={() => <Text>Ask</Text>}>
+                            </TabNavigator.Item>
+                            <TabNavigator.Item
+                                selected={this.state.selectedTab === 'Answer'}
+                                title=" "
+                                renderIcon={() => <Text>Answer</Text>}>
+                            </TabNavigator.Item>
+                        </TabNavigator>
                     </View>
                 </View>
                 <View style={styles.bottom}>
@@ -39,7 +56,8 @@ export default class Ask extends Component {
                         placeholder='Description'
                         returnKeyType='next'
                         placeholderTextColor='white'
-                        underlineColorAndroid='transparent' />
+                        underlineColorAndroid='transparent'
+                        multiline={true} />
                     </View>
                     <View style={styles.button}>
                         <Button title={'Ask Question'} onPress={this.onPressButton} />
@@ -59,13 +77,20 @@ const styles={
     },
     top: {
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     logo: {
         justifyContent: 'center',
         flexDirection: 'row',
         alignItems: 'center'
     },
+    bar: {
+      alignSelf: 'stretch',
+      height: 50,
+      backgroundColor: '#fff',
+      opacity: 0.8,
+      flexDirection: 'row',
+  },
     text: {
         color: 'black',
         fontFamily: 'Avenir',
@@ -83,11 +108,16 @@ const styles={
         paddingHorizontal: 10
     },
     views: {
-        paddingTop: 20,
+        paddingTop: 10,
         paddingLeft: 20,
         paddingRight: 20,
-        borderBottomColor: 'black',
+        paddingBottom: 10,
+        borderTopColor: 'black',
         borderBottomWidth: 1
+    },
+    button: {
+        paddingBottom: 10,
+        borderTopColor: 'black',
     },
     smallText: {
         height: 50,
@@ -107,5 +137,6 @@ const styles={
         borderRadius: 5,
         paddingRight: 50,
         paddingLeft: 50,
+        fontSize: 15
     }
 }
