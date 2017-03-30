@@ -29,7 +29,7 @@ export default class BottomNav extends Component {
                         selected={this.state.selectedTab === 'Ask'}
                         title="Ask"
                         renderIcon={() => <Image source={require('../img/Mail.png')} style={styles.icon} />}
-                        onPress={() => this.setState({ selectedTab: 'Ask'})}>
+                        onPress={(() => this.setState({ selectedTab: 'Ask'}), Actions.ask)}>
                         <Ask />
                     </TabNavigator.Item>
                 </TabNavigator>
