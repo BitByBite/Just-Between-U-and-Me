@@ -17,7 +17,6 @@ export default class BottomNav extends Component {
 
     render() {
         return (
-            <View>
                 <TabNavigator>
                     <TabNavigator.Item
                         selected={this.state.selectedTab === 'Home'}
@@ -34,7 +33,6 @@ export default class BottomNav extends Component {
                         <Ask />
                     </TabNavigator.Item>
                 </TabNavigator>
-            </View>
         );
     }
 }
