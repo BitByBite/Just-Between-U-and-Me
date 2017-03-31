@@ -42,7 +42,7 @@ const styles=StyleSheet.create({
       alignSelf: 'stretch',
       height: 50,
       backgroundColor: '#fff',
-      opacity: 0.8,
+      opacity: 1,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-around',
