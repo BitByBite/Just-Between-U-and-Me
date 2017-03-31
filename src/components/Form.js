@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		backgroundColor: '#3DADFF',
 		height: MARGIN,
-		borderRadius: 5,
+		borderRadius: 20,
 		zIndex: 100,
 	},
 	circle: {
