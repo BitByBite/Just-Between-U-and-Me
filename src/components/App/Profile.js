@@ -26,11 +26,6 @@ export default class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
-	questions: {
-	  	flex: 1,
-	  	backgroundColor: 'transparent',
-	  	paddingTop: 0
-	},
   	top: {
 		flex: 1
   	}

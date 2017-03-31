@@ -3,11 +3,13 @@ import { Text, View, TextInput, Button, Image } from 'react-native';
 import BottomNav from './BottomNav';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import TabNavigator from 'react-native-tab-navigator';
+import Header from '../Header';
 
 export default class Ask extends Component {
     constructor(props) {
-	    super(props);
-			this.state = ({ question: '',
+        super(props);
+        this.state = ({
+            question: '',
             description: '',
             selectedTab: ''
 
@@ -19,13 +21,10 @@ export default class Ask extends Component {
     render() {
         return (
             <View style={styles.backdrop}>
+                <Header
+                    text={<Text style={styles.text}>Just Between <Text style={styles.textBold}>U</Text> and <Text style={styles.textBold}>Me</Text></Text>}
+                />
                 <View style={styles.top}>
-                    <View style={styles.logo}>
-                        <Text style={styles.text}>Just Between </Text>
-                        <Text style={styles.textBold}>You </Text>
-                        <Text style={styles.text}>and </Text>
-                        <Text style={styles.textBold}>Me</Text>
-                    </View>
                     <View style={styles.bar}>
                         <TabNavigator>
                             <TabNavigator.Item
@@ -41,26 +40,28 @@ export default class Ask extends Component {
                         </TabNavigator>
                     </View>
                 </View>
-                <View style={styles.bottom}>
-                    <View style={styles.views}>
-                        <TextInput
-                        style={styles.smallText}
-                        placeholder='Question Title'
-    					returnKeyType='next'
-    					placeholderTextColor='white'
-    					underlineColorAndroid='transparent' />
-                    </View>
-                    <View style={styles.views}>
-                        <TextInput
-                        style={styles.largeText}
-                        placeholder='Description'
-                        returnKeyType='next'
-                        placeholderTextColor='white'
-                        underlineColorAndroid='transparent'
-                        multiline={true} />
-                    </View>
-                    <View style={styles.button}>
-                        <Button title={'Ask Question'} onPress={this.onPressButton} />
+                <View style={styles.bottomBox}>
+                    <View style={styles.bottom}>
+                        <View style={styles.views}>
+                            <TextInput
+                                style={styles.smallText}
+                                placeholder='Question Title'
+                                returnKeyType='next'
+                                placeholderTextColor='white'
+                                underlineColorAndroid='transparent' />
+                        </View>
+                        <View style={styles.views}>
+                            <TextInput
+                                style={styles.largeText}
+                                placeholder='Description'
+                                returnKeyType='next'
+                                placeholderTextColor='white'
+                                underlineColorAndroid='transparent'
+                                multiline={true} />
+                        </View>
+                        <View style={styles.button}>
+                            <Button title={'Ask Question'} onPress={this.onPressButton} />
+                        </View>
                     </View>
                 </View>
                 <BottomNav />
@@ -69,15 +70,15 @@ export default class Ask extends Component {
     }
 }
 
-const styles={
+const styles = {
     backdrop: {
-        paddingTop: 50,
-        backgroundColor: '#DCDCDC',
-        paddingHorizontal: 5
+        backgroundColor: '#D3D3D3',
+        flex: 1
     },
     top: {
         justifyContent: 'center',
         alignItems: 'center',
+        flex: 1
     },
     logo: {
         justifyContent: 'center',
@@ -85,12 +86,12 @@ const styles={
         alignItems: 'center'
     },
     bar: {
-      alignSelf: 'stretch',
-      height: 50,
-      backgroundColor: '#fff',
-      opacity: 0.8,
-      flexDirection: 'row',
-  },
+        alignSelf: 'stretch',
+        height: 50,
+        backgroundColor: '#fff',
+        opacity: 0.8,
+        flexDirection: 'row',
+    },
     text: {
         color: 'black',
         fontFamily: 'Avenir',
@@ -104,20 +105,23 @@ const styles={
     },
     bottom: {
         backgroundColor: 'white',
-        paddingBottom: 50,
-        paddingHorizontal: 10
+        borderRadius: 5,
+    },
+    bottomBox: {
+        paddingLeft: 10,
+        paddingRight: 10
     },
     views: {
         paddingTop: 10,
         paddingLeft: 20,
         paddingRight: 20,
         paddingBottom: 10,
-        borderTopColor: 'black',
+        borderBottomColor: '#D3D3D3',
         borderBottomWidth: 1
     },
     button: {
         paddingBottom: 10,
-        borderTopColor: 'black',
+        paddingTop: 15,
     },
     smallText: {
         height: 50,
@@ -125,8 +129,8 @@ const styles={
         borderWidth: 2,
         borderColor: '#DCDCDC',
         borderRadius: 5,
-        paddingRight: 50,
-        paddingLeft: 50,
+        paddingRight: 25,
+        paddingLeft: 25,
 
     },
     largeText: {
@@ -135,8 +139,7 @@ const styles={
         borderWidth: 2,
         borderColor: '#DCDCDC',
         borderRadius: 5,
-        paddingRight: 50,
-        paddingLeft: 50,
+        paddingLeft: 10,
         fontSize: 15
     }
 }

@@ -22,7 +22,7 @@ export default class BottomNav extends Component {
                         selected={this.state.selectedTab === 'Home'}
                         title="Home"
                         renderIcon={() => <Image source={require('../img/Home.png')} style={styles.icon} />}
-                        onPress={() => this.setState({ selectedTab: 'Home' })}>
+                        onPress={() => this.setState({ selectedTab: 'Home' }, Actions.app)}>
                         <Profile />
                     </TabNavigator.Item>
                     <TabNavigator.Item
