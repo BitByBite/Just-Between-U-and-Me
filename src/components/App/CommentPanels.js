@@ -7,16 +7,17 @@ import Panel from '../Panel'
 export default class BottomNav extends Component {
     render() {
         return (
-            <ScrollView style={styles.questions}>
-                <Panel title="A Panel with short content text" loveCounter={12} responseCounter={7}>
-                    <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
-                </Panel>
-                <Panel title="I am currently having trouble making dank memes pls help no lov so ronry" loveCounter={12} responseCounter={7}>
-                    <Text>forgive english, i am Russia.i come to study clothing and fashion at American university. i am here little time and i am very hard stress. i am gay also and this very difficult for me, i am very religion person. i never act to be gay with other men before. but after i am in america 6 weeks i am my friend together he is gay also. He was show me American fashion and then we are kiss.</Text>
-                </Panel>
-                <Panel title="Another Panel" loveCounter={0} responseCounter={7}>
-                    <Text>Lorem ipsum dolor sit amet...</Text>
-                </Panel>
+            <ScrollView style={styles.questions} >
+                <Panel title="A Panel with short content text" loveCounter={12} responseCounter={7}
+                    body="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                />
+                <Panel title="I am currently having trouble making dank memes pls help no lov so ronry" loveCounter={12} responseCounter={7}
+                    body="forgive english, i am Russia.i come to study clothing and fashion at American university. i am here little time and i am very hard stress. i am gay also and this very difficult for me, i am very religion person. i never act to be gay with other men before. but after i am in america 6 weeks i am my friend together he is gay also. He was show me American fashion and then we are kiss." 
+                    />
+                <Panel title="Another Panel" loveCounter={0} responseCounter={7}
+                body={'Lorem ipsum dolor sit amet...'}
+                />
+                <View style={styles.bottomSpace} />
             </ScrollView>
         );
     }
@@ -25,8 +26,14 @@ export default class BottomNav extends Component {
 
 const styles = {
     questions: {
+        flex: 1,
         backgroundColor: '#D3D3D3',
         paddingTop: 0,
         paddingBottom: 50,
+        height: 370
+    },
+    bottomSpace:{
+        height: 15,
+        width: 1,
     }
 }

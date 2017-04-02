@@ -24,17 +24,17 @@ class Panel extends Component {
             animation: new Animated.Value(),
             isClicked: false,
         };
-            
+
         activateButton = isClicked => {
-        const newState = Object.assign(
-            {},
-            {
-                isClicked: false
-            },
-            { isClicked: true },
-        )
-        this.setState(newState);
-    }
+            const newState = Object.assign(
+                {},
+                {
+                    isClicked: false
+                },
+                { isClicked: true },
+            )
+            this.setState(newState);
+        }
 
     }
     /*
@@ -96,7 +96,7 @@ class Panel extends Component {
             console.log("bye")
         }
         */
-        const {isClicked} = this.state
+        const { isClicked } = this.state
 
         return (
             <View style={styles.hmmm}>
@@ -108,14 +108,17 @@ class Panel extends Component {
 
                     <View style={styles.body} onLayout={this._setMaxHeight.bind(this)}>
                         {this.props.children}
-
+                        <Text style={styles.counters}>{this.props.body}</Text>
+                        <View style={styles.answer}>
+                            <Text style={styles.counters} onPress={null}>Answer Question</Text>
+                        </View>
                     </View>
 
                 </Animated.View>
                 <View style={styles.bottom}>
                     <View style={styles.things}>
                         <TouchableHighlight style={styles.imgs} onPress={() => activateButton('isCLicked')}>
-                            <Image source={isClicked ? require('./img/heartFilled.png') : require('./img/heatUnfilled.png') } />
+                            <Image source={isClicked ? require('./img/heartFilled.png') : require('./img/heatUnfilled.png')} />
                         </TouchableHighlight>
                         <Text style={styles.counters}>{this.state.loveCounter} people sent love</Text>
                     </View>
@@ -162,8 +165,8 @@ var styles = StyleSheet.create({
     title: {
         flex: 1,
         padding: 10,
-        color: '#000',
-        fontWeight: 'bold',
+        color: '#D3D3D3',
+        fontWeight: 'normal',
         fontSize: 18,
         fontFamily: "Avenir",
     },
@@ -187,11 +190,13 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         flex: 1,
         justifyContent: "space-between",
+        paddingTop: 10,
+        paddingBottom: 10
     },
     counters: {
         fontFamily: "Avenir",
         fontSize: 16,
-
+        color: '#D3D3D3'
     },
     imgs: {
         justifyContent: 'center',
@@ -203,6 +208,11 @@ var styles = StyleSheet.create({
     things: {
         flexDirection: 'row',
         paddingBottom: 5,
+    },
+    answer: {
+        padding: 5,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 
