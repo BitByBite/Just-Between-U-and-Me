@@ -156,7 +156,7 @@ var styles = StyleSheet.create({
     },
     hmmm: {
         flexDirection: 'column',
-        margin: 10,
+        margin: 7,
         backgroundColor: 'white',
         opacity: 1,
         overflow: 'hidden',

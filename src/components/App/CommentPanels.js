@@ -27,7 +27,7 @@ export default class BottomNav extends Component {
 const styles = {
     questions: {
         flex: 1,
-        backgroundColor: '#D3D3D3',
+        backgroundColor: '#e5e5e5',
         paddingTop: 0,
         paddingBottom: 50,
         height: 370
