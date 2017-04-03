@@ -1,21 +1,24 @@
+/* @flow */
+
 import React, { Component, PropTypes } from 'react';
 import {
 	StyleSheet,
+	AppRegistry,
 	View,
 	Text,
-	Image,
 } from 'react-native';
+const B = (props) => <Text style={styles.textBold}>{props.children}</Text>
 
-import logoImg from '../images/logo.png';
-
-export default class Logo extends Component {
-	render() {
+const Logo = (props) => {
 		return (
+
 			<View style={styles.container}>
-				<Text style={styles.text}>Just Between <Text style={styles.text2}>You</Text> and <Text style={styles.text2}>Me</Text></Text>
+				<Text style={styles.text}>
+				Just Between <B>You </B>and <B>Me</B>
+				</Text>
 			</View>
+
 		);
-	}
 }
 
 const styles = StyleSheet.create({
@@ -32,7 +35,7 @@ const styles = StyleSheet.create({
 		fontSize: 26,
 		letterSpacing: 2
 	},
-		text2: {
+	textBold: {
 		color: 'white',
 		fontFamily: 'Avenir-Heavy',
 		backgroundColor: 'transparent',
@@ -40,4 +43,7 @@ const styles = StyleSheet.create({
 		fontSize: 26,
 		letterSpacing: 2
 	}
+
 });
+
+export default Logo
