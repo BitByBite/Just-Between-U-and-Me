@@ -7,20 +7,21 @@ import {
 	Animated,
 	TouchableOpacity,
 	Text,
-
+	Easing,
+	Image
 } from 'react-native';
-
+import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 import UserInput from './UserInput';
 import SignupSection from './SignupSection';
 
 import usernameImg from '../images/username.png';
 import passwordImg from '../images/password.png';
+import spinner from '../images/ring.gif';
 
 const MARGIN = 40;
 
 export default class Form extends Component {
-
-		constructor() {
+	constructor() {
 	    super();
 			this.state = ({ username: 'default', password: 'default', isLoading:false, error: '' });
 
@@ -29,11 +30,12 @@ export default class Form extends Component {
 		this._onPress = this._onPress.bind(this);
 		this.testHttp = this.testHTTP.bind(this);
 	}
-	 testHTTP(event) {
+	async testHTTP(event) {
 		 let username = this.state.username;
 		 let password = this.state.password;
 		 console.log('username: ' + username)
-		let response =  fetch(`http://127.0.0.1:8000/`, {
+		 try {
+			 let response =  fetch(`http://127.0.0.1:8000/`, {
 				method: 'POST',
 				headers: {
 					'Accept': 'application/json',
@@ -47,15 +49,19 @@ export default class Form extends Component {
 			.then((response) => {
 				console.log(JSON.stringify(response["url"]))
 				if(response["url"].toString() == "http://127.0.0.1:8000/accounts/profile/") {
-					Actions.SecondScreen();
+					Actions.relationships
 				}
 				else {
 					console.log('fail')
 					this.setState({ error: 'wrong username and password' });
+					Actions.relationships
 				}
 			});
+		} catch(error) {
+			console.log(error)
+			Actions.relationships
+		}
 	}
-
 	_onPress(event) {
 		if (this.state.isLoading) return;
 
@@ -78,7 +84,8 @@ export default class Form extends Component {
 			this.buttonAnimated.setValue(0);
 			this.growAnimated.setValue(0);
 			this.setState({showProgress: true})
-			this.testHTTP();
+		 // this.testHTTP(); IMPLEMENT THIS METHOD WHEN WE WANT TO TEST SERVERS
+		  Actions.relationships()
 		}, 2300);
 	}
 
@@ -159,7 +166,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		backgroundColor: '#3DADFF',
 		height: MARGIN,
-		borderRadius: 5,
+		borderRadius: 20,
 		zIndex: 100,
 	},
 	circle: {

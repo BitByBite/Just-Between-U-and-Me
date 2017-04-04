@@ -1,13 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import Dimensions from 'Dimensions';
 import {
 	StyleSheet,
 	View,
 	Text,
-	LinkingIOS
+	Linking
 } from 'react-native';
 
-
+const Dimensions = require('./Dimensions');
 
 export default class SignupSection extends Component {
 	render() {
@@ -15,20 +14,24 @@ export default class SignupSection extends Component {
 			<View style={styles.container}>
 				<Text style={styles.text}>Don't have us at your school?</Text>
 				<View style={width=2}/>
-				<Text style={styles.text2} onPress={()=> LinkingIOS.openURL('http://www.bitbybite.co')}> Contact us</Text>
+				<Text style={styles.text2} onPress={()=> {
+					let url = 'http://www.bitbybite.co';
+					if(Linking.canOpenURL(url)) {
+						Linking.openURL(url);
+					}
+				}}> Contact us</Text>
 			</View>
 		);
 	}
 }
 
-const DEVICE_WIDTH = Dimensions.get('window').width;
-const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 	container: {
 		flex: 2,
 		top: 30,
-		width: DEVICE_WIDTH,
+		width: Dimensions.WIDTH,
+		height: Dimensions.HEIGHT,
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		paddingLeft: 25,

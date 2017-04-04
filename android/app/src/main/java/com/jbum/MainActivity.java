@@ -1,6 +1,7 @@
 package com.jbum;
 
 import com.facebook.react.ReactActivity;
+import com.github.orhan.bottomnavigation.BottomNavigationPackage;
 
 public class MainActivity extends ReactActivity {
 
