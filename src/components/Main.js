@@ -66,7 +66,6 @@ const scenes = Actions.create(
 			animation='fade'
 			hideNavBar={true}
 		/>
-
 		<Scene key='ask'
 			component={Ask}
 			animation='fade'

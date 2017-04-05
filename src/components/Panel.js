@@ -118,14 +118,14 @@ class Panel extends Component {
                 <View style={styles.bottom}>
                     <View style={styles.things}>
                         <TouchableHighlight style={styles.imgs} onPress={() => activateButton('isCLicked')}>
-                            <Image source={isClicked ? require('./img/heartFilled.png') : require('./img/heatUnfilled.png')} />
+                            <Image source={isClicked ? require('./img/heartFilled.png') : require('./img/heatUnfilled.png')} style={styles.plswork}/>
                         </TouchableHighlight>
                         <Text style={styles.counters}>{this.state.loveCounter} people sent love</Text>
                     </View>
 
                     <View style={styles.things}>
                         <View style={styles.imgs}>
-                            <Image source={require('./img/questionBox.png')} style={styles.imgs} />
+                            <Image source={require('./img/questionBox.png')} style={styles.plswork} />
                         </View>
                         <Text style={styles.counters}>{this.state.responseCounter} responses</Text>
                     </View>
@@ -135,8 +135,9 @@ class Panel extends Component {
                         onPress={this.toggle.bind(this)}
                         underlayColor="transparent">
                         <Image
-                            style={styles.buttonImage}
+                            style={styles.plswork}
                             source={icon}
+                            
                         ></Image>
                     </TouchableHighlight>
                 </View>
@@ -172,12 +173,16 @@ var styles = StyleSheet.create({
     },
     button: {
         paddingTop: 0,
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-        width: 30
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        width: 10,
+        height: 10,
+        paddingRight: 20
     },
-    buttonImage: {
+    plswork: {
         resizeMode: 'contain',
+        width: 18,
+        height: 18,
     },
     body: {
         padding: 10,
@@ -201,9 +206,10 @@ var styles = StyleSheet.create({
     imgs: {
         justifyContent: 'center',
         alignItems: 'center',
-        paddingLeft: 7,
-        paddingRight: 4,
+        paddingLeft: 8,
+        paddingRight: 6,
         paddingBottom: 2,
+
     },
     things: {
         flexDirection: 'row',
