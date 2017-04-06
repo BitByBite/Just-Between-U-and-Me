@@ -18,18 +18,18 @@ import TabNav from './TabNav';
 export default class Profile extends Component {
 	render() {
 		return (
-		<View style={styles.backdrop}>
-			<ParallaxView
-				backgroundSource={bgSrc}
-			    windowHeight={200}
-			    header={(
-					<ProfileInfo/>
-			    )}
-			>
-        		<TopNav />
-			</ParallaxView>
-			<BottomNav tabNumber={0}/>
-		</View>
+			<View style={styles.backdrop}>
+				<ParallaxView
+					backgroundSource={bgSrc}
+					windowHeight={200}
+					header={(
+						<ProfileInfo />
+					)}
+				>
+					<TopNav />
+				</ParallaxView>
+				<BottomNav tabNumber={0} />
+			</View>
 		);
 	}
 }
@@ -37,8 +37,8 @@ export default class Profile extends Component {
 var styles = StyleSheet.create({
 	backdrop: {
 		flex: 1,
-	        flexDirection: 'column',
-	        justifyContent: 'flex-end',
+		flexDirection: 'column',
+		justifyContent: 'flex-end',
 
 	},
 });

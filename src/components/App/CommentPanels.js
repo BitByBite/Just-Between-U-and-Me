@@ -17,7 +17,6 @@ export default class BottomNav extends Component {
                 <Panel title="Another Panel" loveCounter={0} responseCounter={7}
                 body={'Lorem ipsum dolor sit amet...'}
                 />
-                <View style={styles.bottomSpace} />
             </View>
         );
     }
@@ -29,11 +28,6 @@ const styles = {
         flex: 1,
         backgroundColor: '#e5e5e5',
         paddingTop: 0,
-        paddingBottom: 50,
-        height: 370
+        paddingBottom: 0
     },
-    bottomSpace:{
-        height: 15,
-        width: 1,
-    }
 }

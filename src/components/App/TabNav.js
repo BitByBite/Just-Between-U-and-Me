@@ -9,7 +9,7 @@ import CommentPanels from './CommentPanels';
 export default class TabNav extends Component {
   render() {
     return (
-      <ScrollableTabView>
+      <ScrollableTabView showsHorizontalScrollIndicator={'false'}>
         <CommentPanels tabLabel="Questions" />
         <CommentPanels tabLabel="Answered" />
         <CommentPanels tabLabel="Liked" />

@@ -25,7 +25,7 @@ export default class BottomNav extends Component {
     }
     render() {
         return (
-          <BottomNavigation
+          <BottomNavigation 
             activeLabelColor="black"
             rippleColor="white"
             labelColor="white"
