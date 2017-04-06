@@ -19,53 +19,60 @@ export default class BottomNav extends Component {
         if (newTabIndex == 0) {
             Actions.app()
         }
-        if (newTabIndex == 1){
+        if (newTabIndex == 1) {
+            Actions.app()
+        }
+        if (newTabIndex == 2) {
             Actions.ask()
         }
     }
     render() {
         return (
-          <BottomNavigation 
-            activeLabelColor="black"
-            rippleColor="white"
-            labelColor="white"
-            activeTab={this.props.tabNumber}
-            style={{ height: 56, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
-            onTabChange={(newTabIndex) => this.changePage(newTabIndex)}
-          >
-            <Tab
-              label="Profile"
-              icon={<Image style={styles.icon} source={require('../img/HomeIconSelected.png')} />}
-            />
-            <Tab
-              label="Ask"
-              icon={<Image style={styles.icon} source={require('../img/Mail.png')} />}
-            />
-          </BottomNavigation>
+            <BottomNavigation
+                activeLabelColor="black"
+                rippleColor="white"
+                labelColor="white"
+                activeTab={this.props.tabNumber}
+                style={{ height: 56, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
+                onTabChange={(newTabIndex) => this.changePage(newTabIndex)}
+            >
+                <Tab
+                    label="Profile"
+                    icon={<Image style={styles.icon} source={require('../img/Person.png')} />}
+                />
+                <Tab
+                    label="Home"
+                    icon={<Image style={styles.icon} source={require('../img/HomeIconSelected.png')} />}
+                />
+                <Tab
+                    label="Ask"
+                    icon={<Image style={styles.icon} source={require('../img/Mail.png')} />}
+                />
+            </BottomNavigation>
         );
     }
 }
 BottomNav.propTypes = {
-	tabNumber: PropTypes.number.isRequired
+    tabNumber: PropTypes.number.isRequired
 };
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
     bar: {
-      alignSelf: 'stretch',
-      height: 50,
-      backgroundColor: '#fff',
-      opacity: 1,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-around',
-      borderBottomColor: 'transparent',
-      borderTopColor: 'transparent',
-      borderRightColor: 'transparent',
-      borderLeftColor: 'transparent',
-      borderWidth: 1,
+        alignSelf: 'stretch',
+        height: 50,
+        backgroundColor: '#fff',
+        opacity: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        borderBottomColor: 'transparent',
+        borderTopColor: 'transparent',
+        borderRightColor: 'transparent',
+        borderLeftColor: 'transparent',
+        borderWidth: 1,
     },
     icon: {
-      height: 24,
-      width: 24
+        height: 20,
+        width: 20,
     }
 });
