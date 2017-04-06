@@ -193,10 +193,10 @@ var styles = StyleSheet.create({
     },
     bottom: {
         flexDirection: 'row',
-        flex: 1,
+        flex: 0,
         justifyContent: "space-between",
-        paddingTop: 10,
-        paddingBottom: 10
+        paddingTop: 7,
+        paddingBottom: 7
     },
     counters: {
         fontFamily: "Avenir",
