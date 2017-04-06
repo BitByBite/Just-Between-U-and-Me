@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import TabNavigator from 'react-native-tab-navigator';
+import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
 
 import Profile from './Profile';
 import Ask from './Ask';
@@ -14,28 +15,39 @@ export default class BottomNav extends Component {
             selectedTab: ''
         };
     }
-
+    changePage(newTabIndex) {
+        if (newTabIndex == 0) {
+            Actions.app()
+        }
+        if (newTabIndex == 1){
+            Actions.ask()
+        }
+    }
     render() {
         return (
-                <TabNavigator>
-                    <TabNavigator.Item
-                        selected={this.state.selectedTab === 'Home'}
-                        title="Home"
-                        renderIcon={() => <Image source={require('../img/Home.png')} style={styles.icon} />}
-                        onPress={() => this.setState({ selectedTab: 'Home' }, Actions.app)}>
-                        <Profile />
-                    </TabNavigator.Item>
-                    <TabNavigator.Item
-                        selected={this.state.selectedTab === 'Ask'}
-                        title="Ask"
-                        renderIcon={() => <Image source={require('../img/Mail.png')} style={styles.icon} />}
-                        onPress={(() => this.setState({ selectedTab: 'Ask'}), Actions.ask)}>
-                        <Ask />
-                    </TabNavigator.Item>
-                </TabNavigator>
+          <BottomNavigation
+            activeLabelColor="black"
+            rippleColor="white"
+            labelColor="white"
+            activeTab={this.props.tabNumber}
+            style={{ height: 56, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
+            onTabChange={(newTabIndex) => this.changePage(newTabIndex)}
+          >
+            <Tab
+              label="Profile"
+              icon={<Image style={styles.icon} source={require('../img/HomeIconSelected.png')} />}
+            />
+            <Tab
+              label="Ask"
+              icon={<Image style={styles.icon} source={require('../img/Mail.png')} />}
+            />
+          </BottomNavigation>
         );
     }
 }
+BottomNav.propTypes = {
+	tabNumber: PropTypes.number.isRequired
+};
 
 const styles=StyleSheet.create({
     bar: {
@@ -53,7 +65,7 @@ const styles=StyleSheet.create({
       borderWidth: 1,
     },
     icon: {
-      height: 25,
-      width: 25
+      height: 24,
+      width: 24
     }
 });

@@ -64,7 +64,7 @@ export default class Ask extends Component {
                         </View>
                     </View>
                 </View>
-                <BottomNav />
+                <BottomNav tabNumber={1}/>
             </View>
         );
     }
