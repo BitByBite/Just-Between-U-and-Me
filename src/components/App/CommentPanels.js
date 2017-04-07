@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
 import Panel from '../Panel'
@@ -7,7 +7,8 @@ import Panel from '../Panel'
 export default class BottomNav extends Component {
     render() {
         return (
-            <View style={styles.questions} >
+            <View style={styles.questions}
+                ScrollEnabled={this.props.scroll}>
                 <Panel title="A Panel with short content text" loveCounter={12} responseCounter={7}
                     body="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 />
@@ -22,12 +23,16 @@ export default class BottomNav extends Component {
     }
 }
 
+BottomNav.propTypes = {
+    scroll: PropTypes.bool,
+};
+
 
 const styles = {
     questions: {
         flex: 1,
         backgroundColor: '#e5e5e5',
         paddingTop: 0,
-        paddingBottom: 0
+        paddingBottom: 0,
     },
 }

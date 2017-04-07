@@ -11,6 +11,7 @@ import Congrats from './Congrats';
 import BottomNav from './App/BottomNav';
 import Ask from './App/Ask';
 import Profile from './App/Profile';
+import HomePage from './App/HomePage';
 
 export default class Main extends Component {
 	render() {
@@ -63,6 +64,12 @@ const scenes = Actions.create(
 
 		<Scene key='app'
 			component={Profile}
+			animation='fade'
+			hideNavBar={true}
+			initial={true}
+		/>
+		<Scene key='HomePage'
+			component={HomePage}
 			animation='fade'
 			hideNavBar={true}
 		/>
