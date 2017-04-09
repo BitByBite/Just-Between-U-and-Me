@@ -22,7 +22,6 @@ var styles = StyleSheet.create({
 	backdrop: {
 		flex: 1,
 		flexDirection: 'column',
-		justifyContent: 'flex-end',
-
-	},
+		justifyContent: 'flex-end'
+	}
 });

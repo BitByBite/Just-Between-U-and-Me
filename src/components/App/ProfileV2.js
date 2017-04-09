@@ -5,7 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
-  View,
+  View
 } from 'react-native';
 import Wallpaper from '../Wallpaper';
 import BottomNav from './BottomNav';
@@ -34,18 +34,18 @@ export default class Profile extends Component {
       const headerHeight = this.state.scrollY.interpolate({
           inputRange: [0, HEADER_SCROLL_DISTANCE],
           outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
-          extrapolate: 'clamp',
+          extrapolate: 'clamp'
       });
 
       const imageOpacity = this.state.scrollY.interpolate({
         inputRange: [0, HEADER_SCROLL_DISTANCE / 2, HEADER_SCROLL_DISTANCE],
         outputRange: [1, 1, 0],
-        extrapolate: 'clamp',
+        extrapolate: 'clamp'
       });
       const imageTranslate = this.state.scrollY.interpolate({
         inputRange: [0, HEADER_SCROLL_DISTANCE],
         outputRange: [0, -50],
-        extrapolate: 'clamp',
+        extrapolate: 'clamp'
       });
 
       return (
@@ -85,14 +85,14 @@ const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
 
 const styles = StyleSheet.create({
   fill: {
-    flex: 1,
+    flex: 1
   },
   row: {
     height: 40,
     margin: 16,
     backgroundColor: '#D3D3D3',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   header: {
     position: 'absolute',
@@ -100,22 +100,21 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: '#03A9F4',
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   bar: {
     marginTop: 28,
     height: 32,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   title: {
     backgroundColor: 'transparent',
     color: 'white',
-    fontSize: 18,
+    fontSize: 18
   },
   scrollViewContent: {
-      marginTop: HEADER_MAX_HEIGHT,
-
+      marginTop: HEADER_MAX_HEIGHT
   },
 
   backgroundImage: {
@@ -125,7 +124,6 @@ const styles = StyleSheet.create({
     right: 0,
     width: null,
     height: HEADER_MAX_HEIGHT,
-    resizeMode: 'cover',
-  },
-
+    resizeMode: 'cover'
+  }
 });

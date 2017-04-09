@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { View, Text, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { Router, Scene, Actions, ActionConst } from 'react-native-router-flux';
-import Panel from '../Panel'
+import Panel from '../Panel';
 
 //Bar is positioned with padding someone needs to fix so looks the same on all devices
 export default class BottomNav extends Component {
@@ -24,7 +24,7 @@ export default class BottomNav extends Component {
 }
 
 BottomNav.propTypes = {
-    scroll: PropTypes.bool,
+    scroll: PropTypes.bool
 };
 
 
@@ -33,6 +33,6 @@ const styles = {
         flex: 1,
         backgroundColor: '#e5e5e5',
         paddingTop: 0,
-        paddingBottom: 0,
-    },
+        paddingBottom: 0
+    }
 }
