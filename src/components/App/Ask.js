@@ -30,6 +30,7 @@ export default class Ask extends Component {
                   <AskPage styles={styles.page} tabLabel={'Ask'} />
                   <AnswerPage style={styles.page} tabLabel={'Answer'} />
                 </ScrollableTabView>
+                <BottomNav />
             </View>
         );
     }
