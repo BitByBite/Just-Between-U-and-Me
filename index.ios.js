@@ -18,6 +18,7 @@ export default class JBUM extends Component {
   }
 }
 //This is a really big change
+//sup Kyle
 const styles = StyleSheet.create({
   container: {
     flex: 1,
