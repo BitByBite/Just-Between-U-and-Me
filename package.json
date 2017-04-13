@@ -13,6 +13,7 @@
     "react-native-checkbox": "^1.1.0",
     "react-native-dropdown": "0.0.6",
     "react-native-material-bottom-navigation": "^0.4.0",
+    "react-native-modal-dropdown": "^0.4.2",
     "react-native-parallax-view": "^2.0.6",
     "react-native-progress": "^3.2.0",
     "react-native-router-flux": "^3.38.0",
