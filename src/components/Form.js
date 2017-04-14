@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
 	button: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: '#3DADFF',
+		backgroundColor: '#419BF9',
 		height: MARGIN,
 		borderRadius: 20,
 		zIndex: 100,
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
 		borderRadius: 100,
 		alignSelf: 'center',
 		zIndex: 99,
-		backgroundColor: '#3DADFF',
+		backgroundColor: '#419BF9',
 	},
 	text: {
 		color: 'white',

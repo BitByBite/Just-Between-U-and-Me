@@ -39,38 +39,47 @@ export default class AboutMe extends Component {
 					<View style={styles.radios}>
 						<Text style={styles.titles}>Check all that apply below{"⠀"}</Text>
 						<Checkbox
+							checkboxStyle = {styles.comeOn}
 							label='I am in a dating relationship'
 							onChange={(checked) => this.setState({ value: checked })}
 						/>
 						<Checkbox
+						checkboxStyle = {styles.comeOn}
 							label='I am bullied or bully people'
 							onChange={(checked) => this.setState({ value: checked })}
 						/>
 						<Checkbox
+						checkboxStyle = {styles.comeOn}
 							label='I do drugs or drink alcohol occasionally'
 							onChange={(checked) => this.setState({ value: checked })}
 						/>
 						<Checkbox
+						checkboxStyle = {styles.comeOn}
 							label='My parents are divorced'
 							onChange={(checked) => this.setState({ value: checked })}
 						/>
 						<Checkbox
+						checkboxStyle = {styles.comeOn}
 							label='I have questions about my sexuality'
 							onChange={(checked) => this.setState({ value: checked })}
 						/>
 						<Checkbox
+						checkboxStyle = {styles.comeOn}
 							label='I have a disease or chronic illness'
 							onChange={(checked) => this.setState({ value: checked })}
 						/>
 						<Checkbox
+						checkboxStyle = {styles.comeOn}
 							label='I have a handicap or disability'
 							onChange={(checked) => this.setState({ value: checked })}
 						/>
 						<Checkbox
+						checkboxStyle = {styles.comeOn}
 							label='I am despressed or hurt myself'
 							onChange={(checked) => this.setState({ value: checked })}
 						/>
 						<Checkbox
+						checkboxStyle = {styles.comeOn}
 							label='I am angry or hurt others'
 							onChange={(checked) => this.setState({ value: checked })}
 						/>
@@ -95,7 +104,11 @@ const styles = StyleSheet.create({
 		paddingLeft: 30,
 		paddingTop: 15,
 		paddingBottom: 15,
-
+	},
+	comeOn: {
+		height: 20,
+		width: 20,
+		overlayColor: '#419BF9',
 	},
 	titles: {
 		fontFamily: 'Avenir',

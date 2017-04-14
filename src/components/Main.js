@@ -66,7 +66,6 @@ const scenes = Actions.create(
 			component={Profile}
 			animation='fade'
 			hideNavBar={true}
-			initial={true}
 		/>
 		<Scene key='HomePage'
 			component={HomePage}
