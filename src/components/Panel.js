@@ -2,7 +2,7 @@
 import React, { Component, } from 'react';
 import { StyleSheet, Text, View, Image, TouchableHighlight, Animated } from 'react-native';
 
-class Panel extends Component {
+export default class Panel extends Component {
     constructor(props) {
         super(props);
 
@@ -10,48 +10,27 @@ class Panel extends Component {
             'up': require('./img/arrowUp.png'),
             'down': require('./img/downArrow.png'),
         };
+
         /*
         this.hearts = {
             'heartFilled': require('./img/heartFilled.png'),
             'hearUnfilled': require('./img/heatUnfilled.png'),
         }
         */
+
         this.state = {
             title: props.title,
             responseCounter: props.responseCounter,
             loveCounter: props.loveCounter,
-            expanded: false,
+            expanded: true,
             animation: new Animated.Value(),
-            isClicked: false,
+            isLiked: false
         };
-
-        activateButton = isClicked => {
-            const newState = Object.assign(
-                {},
-                {
-                    isClicked: false
-                },
-                { isClicked: true },
-            )
-            this.setState(newState);
-        }
-
     }
-    /*
-    _onClick() {
-        if (this.clicked == false) {
-            this.clicked = true;
-        }
-        else {
-            this.clicked = false;
-        }
-        this.render();
-    }
-    */
 
     toggle() {
-        let initialValue = this.state.expanded ? this.state.maxHeight + this.state.minHeight : this.state.minHeight,
-            finalValue = this.state.expanded ? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
+        let initialValue = this.state.expanded ? this.state.maxHeight + this.state.minHeight : this.state.minHeight;
+        let finalValue = this.state.expanded ? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
 
         this.setState({
             expanded: !this.state.expanded
@@ -66,6 +45,18 @@ class Panel extends Component {
         ).start();
     }
 
+    /*
+    _onClick() {
+        if (this.clicked == false) {
+            this.clicked = true;
+        }
+        else {
+            this.clicked = false;
+        }
+        this.render();
+    }
+    */
+
     _setMaxHeight(event) {
         this.setState({
             maxHeight: event.nativeEvent.layout.height
@@ -79,11 +70,13 @@ class Panel extends Component {
     }
 
     render() {
-        let icon = this.icons['down'];
-
         if (this.state.expanded) {
             icon = this.icons['up'];
         }
+        else {
+            icon = this.icons['down'];
+        }
+
         /*
         let hearts = this.hearts['hearUnfilled'];
 
@@ -96,7 +89,6 @@ class Panel extends Component {
             console.log("bye")
         }
         */
-        const { isClicked } = this.state
 
         return (
             <View style={styles.hmmm}>
@@ -113,12 +105,12 @@ class Panel extends Component {
                             <Text style={styles.counters} onPress={null}>Answer Question</Text>
                         </View>
                     </View>
-
                 </Animated.View>
+
                 <View style={styles.bottom}>
                     <View style={styles.things}>
-                        <TouchableHighlight style={styles.imgs} onPress={() => activateButton('isCLicked')}>
-                            <Image source={isClicked ? require('./img/heartFilled.png') : require('./img/heatUnfilled.png')} style={styles.plswork}/>
+                        <TouchableHighlight style={styles.imgs} onPress={() => this.state.isLiked = !this.state.isLiked}>
+                            <Image source={this.state.isLiked ? require('./img/heartFilled.png') : require('./img/heatUnfilled.png')} style={styles.plswork}/>
                         </TouchableHighlight>
                         <Text style={styles.counters}>{this.state.loveCounter} people sent love</Text>
                     </View>
@@ -132,16 +124,15 @@ class Panel extends Component {
 
                     <TouchableHighlight
                         style={styles.button}
-                        onPress={this.toggle.bind(this)}
+                        onPress={() => { this.toggle(); }}
                         underlayColor="transparent">
                         <Image
                             style={styles.plswork}
-                            source={icon}
-                            
-                        ></Image>
+                            source={icon}>
+                        </Image>
                     </TouchableHighlight>
                 </View>
-            </View >
+            </View>
         );
     }
 }
@@ -150,10 +141,10 @@ var styles = StyleSheet.create({
     container: {
         backgroundColor: 'white',
         overflow: 'hidden',
-        opacity: 1,
+        opacity: 1
     },
     titleContainer: {
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     hmmm: {
         flexDirection: 'column',
@@ -161,7 +152,7 @@ var styles = StyleSheet.create({
         backgroundColor: 'white',
         opacity: 1,
         overflow: 'hidden',
-        borderRadius: 4,
+        borderRadius: 4
     },
     title: {
         flex: 1,
@@ -169,7 +160,7 @@ var styles = StyleSheet.create({
         color: '#D3D3D3',
         fontWeight: 'normal',
         fontSize: 18,
-        fontFamily: "Avenir",
+        fontFamily: "Avenir"
     },
     button: {
         paddingTop: 0,
@@ -182,14 +173,14 @@ var styles = StyleSheet.create({
     plswork: {
         resizeMode: 'contain',
         width: 18,
-        height: 18,
+        height: 18
     },
     body: {
         padding: 10,
         paddingTop: 5,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: .2,
+        shadowOpacity: .2
     },
     bottom: {
         flexDirection: 'row',
@@ -208,12 +199,12 @@ var styles = StyleSheet.create({
         alignItems: 'center',
         paddingLeft: 8,
         paddingRight: 6,
-        paddingBottom: 2,
+        paddingBottom: 2
 
     },
     things: {
         flexDirection: 'row',
-        paddingBottom: 5,
+        paddingBottom: 5
     },
     answer: {
         padding: 5,
@@ -221,5 +212,3 @@ var styles = StyleSheet.create({
         alignItems: 'center'
     }
 });
-
-export default Panel;

@@ -24,8 +24,7 @@ export default class Profile extends Component {
 					windowHeight={200}
 					header={(
 						<ProfileInfo />
-					)}
-				>
+					)}>
 					<TopNav />
 				</ParallaxView>
 				<BottomNav tabNumber={0} />
