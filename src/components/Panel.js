@@ -16,7 +16,7 @@ export default class Panel extends Component {
             title: props.title,
             responseCounter: props.responseCounter,
             loveCounter: props.loveCounter,
-            expanded: false,
+            expanded: true,
             animation: new Animated.Value(),
         };
     }
