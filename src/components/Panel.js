@@ -51,6 +51,8 @@ export default class Panel extends Component {
     }
 
     render() {
+        let icon = this.icons['down'];
+
         if (this.state.expanded) {
             icon = this.icons['up'];
         }

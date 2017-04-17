@@ -1,12 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import {
-	StyleSheet,
-	View,
-	Text,
-	Image,
-	TouchableHighlight,
-	Animated
-} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, Animated} from 'react-native';
 
 import logoImg from '../images/logo.png';
 
@@ -17,7 +10,7 @@ export default class Logo extends Component {
 		this.heart = {
 			'fil': require('./img/heartFilled.png'),
 			'un': require('./img/heartUnfilled.png'),
-		}
+		};
 
 		this.state = {
 			isLiked: false,
@@ -32,9 +25,9 @@ export default class Logo extends Component {
 	}
 
 	render() {
-		let heart = this.heart['un'];
+		let heart = this.heart['fil'];
 
-		if (this.isLiked) {
+		if (this.state.isLiked) {
 			heart = this.heart['fil'];
 		}
 		else {
