@@ -1,6 +1,7 @@
 
 import React, { Component, } from 'react';
 import { StyleSheet, Text, View, Image, TouchableHighlight, Animated } from 'react-native';
+import LikeButton from './LikeButton.js';
 
 export default class Panel extends Component {
     constructor(props) {
@@ -11,20 +12,12 @@ export default class Panel extends Component {
             'down': require('./img/downArrow.png'),
         };
 
-        /*
-        this.hearts = {
-            'heartFilled': require('./img/heartFilled.png'),
-            'hearUnfilled': require('./img/heatUnfilled.png'),
-        }
-        */
-
         this.state = {
             title: props.title,
             responseCounter: props.responseCounter,
             loveCounter: props.loveCounter,
-            expanded: true,
+            expanded: false,
             animation: new Animated.Value(),
-            isLiked: false
         };
     }
 
@@ -44,18 +37,6 @@ export default class Panel extends Component {
             }
         ).start();
     }
-
-    /*
-    _onClick() {
-        if (this.clicked == false) {
-            this.clicked = true;
-        }
-        else {
-            this.clicked = false;
-        }
-        this.render();
-    }
-    */
 
     _setMaxHeight(event) {
         this.setState({
@@ -77,19 +58,6 @@ export default class Panel extends Component {
             icon = this.icons['down'];
         }
 
-        /*
-        let hearts = this.hearts['hearUnfilled'];
-
-        if (this.clicked == true) {
-            hearts = this.hearts['heartFilled'];
-            console.log("hi")
-        }
-        else {
-            hearts = this.hearts['hearUnfilled'];
-            console.log("bye")
-        }
-        */
-
         return (
             <View style={styles.hmmm}>
                 <Animated.View
@@ -108,10 +76,9 @@ export default class Panel extends Component {
                 </Animated.View>
 
                 <View style={styles.bottom}>
+
                     <View style={styles.things}>
-                        <TouchableHighlight style={styles.imgs} onPress={() => this.state.isLiked = !this.state.isLiked}>
-                            <Image source={this.state.isLiked ? require('./img/heartFilled.png') : require('./img/heatUnfilled.png')} style={styles.plswork}/>
-                        </TouchableHighlight>
+                        <LikeButton />
                         <Text style={styles.counters}>{this.state.loveCounter} people sent love</Text>
                     </View>
 
