@@ -51,14 +51,7 @@ export default class Panel extends Component {
     }
 
     render() {
-        let icon = this.icons['down'];
-
-        if (this.state.expanded) {
-            icon = this.icons['up'];
-        }
-        else {
-            icon = this.icons['down'];
-        }
+        let icon = (this.state.expanded ? this.icons['up'] : this.icons['down']);
 
         return (
             <View style={styles.hmmm}>
