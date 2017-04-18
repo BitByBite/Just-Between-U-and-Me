@@ -8,7 +8,7 @@ export default class CommentPanels extends Component {
     render() {
         return (
             <View style={styles.questions}
-                ScrollEnabled={this.props.scroll}>
+                scroll={this.props.scroll}>
                 <Panel title="A Panel with short content text" loveCounter={12} responseCounter={7}
                     body="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 />
@@ -32,7 +32,6 @@ const styles = {
     questions: {
         flex: 1,
         backgroundColor: '#e5e5e5',
-        paddingTop: 0,
-        paddingBottom: 0
+        paddingBottom: 60
     }
 }

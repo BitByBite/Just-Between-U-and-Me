@@ -27,7 +27,7 @@ const styles = {
   bar: {
     backgroundColor: '#fff',
     paddingTop: 10,
-    height: 1000 //ya this code is not good
+    flex: 1,
   },
   icon1: {
     height: 25,
@@ -42,6 +42,11 @@ const styles = {
     width: 25,
   },
   images: {
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      alignSelf: 'stretch',
+  },
+  logs: {
       flexDirection: 'row',
       justifyContent: 'space-around',
       alignSelf: 'stretch',
