@@ -16,20 +16,26 @@ import bgSrc from '../img/Background.png';
 import CommentPanels from './CommentPanels';
 import TabNav from './TabNav';
 import Dimensions from 'Dimensions';
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 
 export default class Profile extends Component {
 
-    constructor(props) {
-      super(props);
+    constructor() {
+      super();
 
-      this.state = {
+      this.state = ({
         scrollY: new Animated.Value(0),
-      };
+        scrollTop: true
+    });
+    this.handleScroll = this.handleScroll.bind(this);
     }
 
-  render() {
+    handleScroll(event: Object) {
 
+     console.log(event.nativeEvent.contentOffset.y)
+  }
+        render() {
 
       const headerHeight = this.state.scrollY.interpolate({
           inputRange: [0, HEADER_SCROLL_DISTANCE],
@@ -52,12 +58,13 @@ export default class Profile extends Component {
             <View style={styles.fill}>
                 <ScrollView style={styles.fill}
                     scrollEventThrottle={16}
-                    onScroll={Animated.event([{nativeEvent: {contentOffset: {y: this.state.scrollY}}}])}
-                    scrollEnabled={this._allScroll()}
+                    onScroll={Animated.event(
+                            [{nativeEvent: {contentOffset: {y: this.state.scrollY}}}]
+                            )}
+                    scroll={this.state.scrollTop}
                 >
                 <View style={styles.scrollViewContent}>
-                    <TopNav
-                        scroll={this._bottomScroll}/>
+                    <TopNav/>
                 </View>
                 </ScrollView>
                 <Animated.View style={[styles.header, {height: headerHeight}]}>
@@ -74,13 +81,16 @@ export default class Profile extends Component {
                 </Animated.View>
                 <BottomNav tabNumber={0} />
             </View>
+
     );
   }
+
 }
+
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 const HEADER_MAX_HEIGHT = 200;
-const HEADER_MIN_HEIGHT = 0;
+const HEADER_MIN_HEIGHT = 60;
 const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
 
 const styles = StyleSheet.create({

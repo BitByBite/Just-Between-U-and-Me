@@ -22,7 +22,7 @@ export default class ProfileInfo extends Component {
 	}
 	render() {
 		return (
-			<View>
+			<Wallpaper>
 				<Text style={styles.text}>{this.state.Name}</Text>
 				<View style={styles.info}>
 					<Text style={styles.text2}>{this.state.QuestionNumber}</Text>
@@ -45,7 +45,7 @@ export default class ProfileInfo extends Component {
 						color={'white'}
 					/>
 				</View>
-			</View>
+			</Wallpaper>
 		);
 	}
 }

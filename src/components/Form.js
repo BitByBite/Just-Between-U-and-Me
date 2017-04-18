@@ -117,15 +117,18 @@ export default class Form extends Component {
 				<UserInput source={usernameImg}
 					placeholder='Username'
 					autoCapitalize={'none'}
-					returnKeyType={'done'}
+					returnKeyType={'next'}
 					autoCorrect={false}
+					//onSubmitEditing={/*Focud next text input*/}
 					onChangeText={username => this.setState({ username })} />
 				<UserInput source={passwordImg}
+					ref='two'
 					secureTextEntry={true}
 					placeholder='Password'
 					returnKeyType={'done'}
 					autoCapitalize={'none'}
 					autoCorrect={false}
+					onSubmitEditing={this._onPress}
 					onChangeText={password => this.setState({ password })} />
 			</KeyboardAvoidingView>
 			<View style={styles.containerButton}>

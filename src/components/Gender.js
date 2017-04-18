@@ -80,40 +80,34 @@ export default class Gender extends Component {
           		>
 
 
-          				<View style = {styles.dater}>
+          			<View style = {styles.dater}>
 									<TouchableOpacity
 										style={styles.button}
 										activeOpacity={1}
 										onPress={() => {
 										this.setModalVisible(!this.state.modalVisible)
 									}}>
-								<Text>Confirm</Text>
-								<View style={{width: 700, height: 8, backgroundColor: '#419BF9'}} />
-								</TouchableOpacity>
-												<DatePickerIOS
-													backgroundColor = 'black'
-													date={this.state.date}
-													mode="date"
-													timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
-													onDateChange={this.onDateChange}
-												/>
-
-
-
+										<Text>Confirm</Text>
+										<View style={{width: 700, height: 8, backgroundColor: '#419BF9'}} />
+									</TouchableOpacity>
+										<DatePickerIOS
+											backgroundColor = 'black'
+											date={this.state.date}
+											mode="date"
+											timeZoneOffsetInMinutes={this.state.timeZoneOffsetInHours * 60}
+											onDateChange={this.onDateChange}
+										/>
           			</View>
-        </Modal>
-
-        <TouchableOpacity onPress={() => {
-          this.setModalVisible(true)
-        }}>
-          <Text>{
-            this.state.date.toLocaleDateString()
-          }</Text>
-        </TouchableOpacity>
-
-      </View>
-
-				</View>
+        			</Modal>
+        		<TouchableOpacity onPress={() => {
+          	this.setModalVisible(true)
+        		}}>
+          		<Text>{
+            		this.state.date.toLocaleDateString()
+          		}</Text>
+        		</TouchableOpacity>
+      	</View>
+			</View>
 
 					<View style={styles.radios}>
 						<Text style={styles.titles}>Gender{"⠀"}</Text>
