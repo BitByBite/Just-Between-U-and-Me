@@ -4,7 +4,7 @@ import {
 	View,
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
-
+import LoginScreen from '../LoginScreen'
 import BottomNav from './BottomNav';
 
 
@@ -13,6 +13,7 @@ export default class HomePage extends Component {
 		return (
 			<View style={styles.backdrop}>
 				<BottomNav tabNumber={1} />
+				
 			</View>
 		);
 	}
