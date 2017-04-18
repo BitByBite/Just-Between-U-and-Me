@@ -23,6 +23,7 @@ export default class SignupSection extends Component {
 			</View>
 		);
 	}
+	
 }
 
 
