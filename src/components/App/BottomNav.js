@@ -20,10 +20,10 @@ export default class BottomNav extends Component {
             Actions.app()
         }
         if (newTabIndex == 1) {
-            Actions.HomePage()
+            Actions.ask()
         }
         if (newTabIndex == 2) {
-            Actions.ask()
+            Actions.HomePage()
         }
     }
     render() {
@@ -44,15 +44,15 @@ export default class BottomNav extends Component {
 
                 />
                 <Tab
-                    label="Home"
-                    icon={<Image style={styles.icon} source={require('../img/HomeIconUnselected.png')} />}
-                    activeIcon={<Image style={styles.icon} source={require('../img/HomeIconSelected.png')} />}
-                />
-                <Tab
                     label="Ask"
                     icon={<Image style={styles.icon} source={require('../img/PostIconUnselected.png')} />}
                     activeIcon={<Image style={styles.icon} source={require('../img/PostIconSelected.png')} />}
 
+                />
+                <Tab
+                    label="Home"
+                    icon={<Image style={styles.icon} source={require('../img/HomeIconUnselected.png')} />}
+                    activeIcon={<Image style={styles.icon} source={require('../img/HomeIconSelected.png')} />}
                 />
             </BottomNavigation>
         );

@@ -12,8 +12,8 @@ export default class HomePage extends Component {
 	render() {
 		return (
 			<View style={styles.backdrop}>
-				<BottomNav tabNumber={1} />
-				
+				<BottomNav tabNumber={2} />
+
 			</View>
 		);
 	}
